@@ -2,7 +2,6 @@
 node_modules
 **/node_modules
 /build
-gitCommitShell.sh
 dist
 lerna-debug.log
 
