@@ -24,5 +24,4 @@ yarn-error.log*
 *.sln
 *.sw?
 
-gitCommitShell.sh
-
+main.out
