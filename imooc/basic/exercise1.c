@@ -1,11 +1,9 @@
 #include <stdio.h>
 
-int main ()
+int main()
 {
-	int a, b;
-	printf("please input three integer:");
-	scanf("%d%d", &a, &b);
-
-	printf("a=%p, b=%p\n", &a, &b);
-	return 0;
+  int a, b, c;
+  a = a > b ? b = b > c ? c : b : a;
+  printf("a=%d, b=%d, c=%d", a, b, c);
+  return 0;
 }

@@ -2,17 +2,21 @@
 
 int main()
 {
-  int x, y;
-  float b;
-  double c;
+		int data = 0;
+		printf("please input a data:");
+		scanf("%d", &data);
 
-  printf("place input two int data:");
-  scanf("%d%d", &x, &y);
-  printf("x=%d y=%d\n", x, y);
+		printf("data > 30 = %d\n", data > 30);
+		printf("data == 30 = %d\n", data == 30);
 
-  printf("place input two float data:");
-  scanf("%f%lf", &b, &c);
-  printf("b = %f c = %lf\n", b, c);
+		printf("==================\n");
 
-  return 0;
+		printf("data = 800 : %d\n", data = 800);
+		printf("data != 800 : %d\n", data != 800);
+
+		printf("==================\n");
+
+		printf("10 < data < 20 : %d\n", 10 < data < 20);
+
+		return 0;
 }

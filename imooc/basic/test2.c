@@ -2,14 +2,19 @@
 
 int main()
 {
+  unsigned char a = 0x58; // 0101 1000
+  unsigned char b = 0xd7; // 1101 0111
+                          // ~ 0010 1000
+  unsigned char c = 0;
 
-  char x, y, z;
+  c = a & b; // 0101 0000
+  c = a | b; // 1101 1111
+  c = (a & ~b) ^ 0xf1;// ~b 0010 1000
+                      // a & b 0000 1000
+                      // 0xf1 1111 0001
+                      // ^ 1111 1001
+                      // ()10 -> 1 + 0 + 0 + 8 + 16 + 32 +  64 + 128 = 249
+  printf("%d", c); // 249
 
-  printf("please input three character : ");
-  scanf("%c%c%c", &x, &y, &z);
-
-  printf("x = %c : %d\n", x, x);
-  printf("y = %c : %d\n", y, y);
-  printf("z = %c : %d\n", z, z);
   return 0;
 }
