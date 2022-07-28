@@ -1,22 +1,30 @@
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+int *getRandom()
+{
+    static int r[10];
+    int i;
+
+    srand((unsigned)time(NULL));
+    for (i = 0; i < 10; i++)
+    {
+        r[i] = rand();
+        printf("%d\n", r[i]);
+    }
+
+    return r;
+}
 
 int main()
 {
-		int data = 0;
-		printf("please input a data:");
-		scanf("%d", &data);
+    int *p;
+    int i;
 
-		printf("data > 30 = %d\n", data > 30);
-		printf("data == 30 = %d\n", data == 30);
+    p = getRandom();
+    for (i = 0; i < 10; i++)
+        printf("*p + [%d]: %d\n", i, *(p + i));
 
-		printf("==================\n");
-
-		printf("data = 800 : %d\n", data = 800);
-		printf("data != 800 : %d\n", data != 800);
-
-		printf("==================\n");
-
-		printf("10 < data < 20 : %d\n", 10 < data < 20);
-
-		return 0;
+    return 0;
 }
