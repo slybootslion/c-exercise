@@ -1,30 +1,12 @@
 #include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
-
-int *getRandom()
-{
-    static int r[10];
-    int i;
-
-    srand((unsigned)time(NULL));
-    for (i = 0; i < 10; i++)
-    {
-        r[i] = rand();
-        printf("%d\n", r[i]);
-    }
-
-    return r;
-}
 
 int main()
 {
-    int *p;
-    int i;
-
-    p = getRandom();
-    for (i = 0; i < 10; i++)
-        printf("*p + [%d]: %d\n", i, *(p + i));
+    printf("%c, %d, %c, %d\n", 'a', 'a', 'm', 'm');
+    printf("%f\n", 3.14159287);
+    printf("%e\n", 31455452232.88232);
+    printf("data1=%c:%d\n", 'A' + 32, 'a');
+    printf("data2=%d\n", '1' - 48);
 
     return 0;
 }
