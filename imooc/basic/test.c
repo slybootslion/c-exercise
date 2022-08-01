@@ -2,11 +2,19 @@
 
 int main()
 {
-    printf("%c, %d, %c, %d\n", 'a', 'a', 'm', 'm');
-    printf("%f\n", 3.14159287);
-    printf("%e\n", 31455452232.88232);
-    printf("data1=%c:%d\n", 'A' + 32, 'a');
-    printf("data2=%d\n", '1' - 48);
-
+    unsigned char a = 0x58; // 0101 1000
+    unsigned char b = 0xd7; // 1101 0111
+    unsigned char c = 0;
+    c = a & b;
+    //                         0101 0000
+    printf("%x\n", c); // 0x50
+    c = a | b;
+    //                         1101 1111
+    printf("%x\n", c); // 0xdf
+    c = (a & ~b) ^ 0xf1; // f1 1111 0001
+    //                      ~b 0010 1000
+    //                      &a 0000 1000
+    //                      ^  1111 1001
+    printf("%x\n", c); // 0xf9
     return 0;
 }
