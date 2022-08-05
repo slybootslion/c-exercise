@@ -10,11 +10,11 @@ int main()
     printf("%x\n", c); // 0x50
     c = a | b;
     //                         1101 1111
-    printf("%x\n", c); // 0xdf
+    printf("%x\n", c);   // 0xdf
     c = (a & ~b) ^ 0xf1; // f1 1111 0001
     //                      ~b 0010 1000
     //                      &a 0000 1000
     //                      ^  1111 1001
-    printf("%x\n", c); // 0xf9
+    printf("%x\n", c); // 0xf9 上传没有？？
     return 0;
 }
