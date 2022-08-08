@@ -28,7 +28,7 @@ int main()
 {
   int time;
   printf("输入上车时间：0-24\n");
-  scanf("%d", time);
+  scanf("%d", &time);
   float pay_money = pay(time);
   printf("价格：%f", pay_money);
   return 0;
