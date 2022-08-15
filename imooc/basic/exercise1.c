@@ -1,34 +1,32 @@
 #include <stdio.h>
+#include <string.h>
 
-int main() {
-    int a, b, c, t;
-    printf("input three number:");
-    scanf("%d%d%d", &a, &b, &c);
-
-    a > b ? (t = a, a = b, b = t) : a;
-    a > c ? (t = a, a = c, c = t) : a;
-    b > c ? (t = b, b = c, c = t) : a;
-
-    printf("a=%d, c=%d, b=%d\n", a, b, c);
-
-    return 0;
+int count_words(const char *arr) {
+    int count = 0, flag = 0, is_word = 1;
+    for (int i = 0; i < strlen(arr); ++i) {
+        char c = arr[i];
+        if (c != ' ' && c != '\n') {
+            if (flag == 0) {
+                flag = 1;
+                is_word = 1;
+            }
+            if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) continue;
+            else is_word = 0;
+        } else {
+            if (flag == 1)
+                count += is_word;
+            flag = 0;
+        }
+    }
+    return count;
 }
 
-//#include <stdio.h>
-//
-//int main()
-//{
-//    int a, x, y, z;
-//
-//    printf("input Three digits integer:\n");
-//    scanf("%d", &a);
-//
-//    z = a % 100 % 10;
-//    y = a % 100 / 10;
-//    x = a / 100;
-//    printf("x = %d, y = %d, z = %d\n", x, y, z);
-//
-//    return 0;
-//}
+int main() {
+    char buf[100];
+    printf("input a string:\n");
+    fgets(buf, 100, stdin);
 
-//test
+    int count = count_words(buf);
+    printf("words count is: %d\n", count);
+    return 0;
+}

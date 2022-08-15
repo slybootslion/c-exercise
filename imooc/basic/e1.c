@@ -1,19 +1,28 @@
 #include <stdio.h>
 
-int main()
-{
-  int x = 10, y = 20;
-  int z = 0;
+void input_data(int *arr, int len) {
+    printf("input 5 integer number:\n");
+    for (int i = 0; i < len; ++i)
+        scanf("%d", &arr[i]);
+}
 
-  z = (++x) + (y++);
-  printf("z = %d\n", z); // 31
+void count_data(const int *arr, int len, int *count, int *sum) {
+    for (int i = 0; i < len; ++i) {
+        if (arr[i] > 0) {
+            (*count)++;
+            *sum += arr[i];
+        }
+    }
+}
 
-  z = (--x) + (y++);
-  printf("z = %d\n", z); // 31
+int main() {
+    int a[5] = {0};
+    int len = sizeof(a) / sizeof(a[0]);
+    int count = 0, sum = 0;
 
-  z = (++x) + (--y);
-  printf("z = %d\n", z); // 32
+    input_data(a, len);
+    count_data(a, len, &count, &sum);
+    printf("正数的个数：%d，正数之和：%d\n", count, sum);
 
-  printf("x = %d y = %d\n", x, y); // 11 21
-  return 0;
+    return 0;
 }
