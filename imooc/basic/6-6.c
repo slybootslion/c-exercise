@@ -5,7 +5,6 @@ int getIndex(int arr[5], int value)
   int index = -1;
   for (i = 0; i < 5; i++)
   {
-    /* 请完善数组查询功能 */
     if (arr[i] == value)
     {
       return i;
