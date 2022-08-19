@@ -1,3 +1,11 @@
-//
-// Created by SlybootsLion on 2022/8/19.
-//
+#include <stdio.h>
+
+extern int global;
+
+extern void fun();
+
+int main() {
+    printf("global = %d\n", global);
+    fun();
+    return 0;
+}
