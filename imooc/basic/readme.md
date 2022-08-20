@@ -1,1 +1,1 @@
-https://git.imooc.com/class-148/ 教学git仓库
+[教学git仓库](https://git.imooc.com/class-148/)
