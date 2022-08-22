@@ -12,7 +12,6 @@ typedef struct
     int id;
     int score;
 }s_t;
-
 1. 设计一个s_t *get_memeory_addr()函数,要求在堆区为上述结构体分配空间。
 2. 设计一个void input_student(s_t *s)函数，要求用户从键盘输入数据给s中的变量。
 3. 设计一个void optput_student(s_t *s)函数，要求输出用户输入的数据。
