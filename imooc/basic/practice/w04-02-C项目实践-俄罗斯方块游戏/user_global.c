@@ -2,6 +2,7 @@
 // Created by SlybootsLion on 2022/8/23.
 //
 
+#include <termios.h>
 #include "user_print.h"
 
 int next_num = 0;
@@ -17,13 +18,23 @@ int next_y = 8;
 int dynamic_x = 0;
 int dynamic_y = 0;
 
-int tm = 200000; // 0.8s
+int tm = 800000; // 0.8s
 
 int matrix[24][28] = {0};
+
+struct termios tm_old;
+
+int score_x = 45;
+int score_y = 18;
+int level_x = 45;
+int level_y = 22;
 
 int dynamic_num = 0;
 int dynamic_mode = 0;
 int dynamic_color = 0;
+
+int user_score = 0;
+int user_level = 0;
 
 int shape[7][4][18] = {
         {

@@ -75,7 +75,7 @@ void init_new_shape() {
 
 int judge_shape(int num, int mode, int x, int y) {
     int m_line = y - 6;
-    int m_column = x - 11;
+    int m_column = x - 12;
     for (int i = 0; i < 16; ++i) {
         if (i != 0 && i % 4 == 0) {
             m_line++;
@@ -86,20 +86,5 @@ int judge_shape(int num, int mode, int x, int y) {
                 return 1;
         m_column += 2;
     }
-    return 0;
-}
-
-int move_down(int num, int mode) {
-    if (dynamic_y + (4 - shape[num][mode][17]) - 1 >= 29 || judge_shape(num, mode, dynamic_x, dynamic_y + 1)) {
-        store_current_shape();
-        init_new_shape();
-        print_next_shape();
-        return 1;
-    }
-
-    erase_last_shape(num, mode, dynamic_x, dynamic_y);
-    dynamic_y++;
-    print_mode_shape(num, mode, dynamic_x, dynamic_y, dynamic_color);
-
     return 0;
 }

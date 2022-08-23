@@ -19,6 +19,7 @@ extern int init_y;
 
 extern int dynamic_x;
 extern int dynamic_y;
+
 extern int dynamic_num;
 extern int dynamic_mode;
 extern int dynamic_color;
@@ -32,8 +33,6 @@ extern void print_mode_shape(int n, int m, int x, int y, int c);
 extern void print_next_shape();
 
 extern void erase_last_shape(int n, int m, int a, int b);
-
-extern int move_down(int num, int mode);
 
 extern void store_current_shape();
 

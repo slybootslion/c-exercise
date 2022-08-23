@@ -1,34 +1,25 @@
-#include <termios.h>
 #include <stdlib.h>
 #include <time.h>
 #include <signal.h>
-#include "head.h"
 #include "user_print.h"
 #include "user_control.h"
-
-extern int tm;
-
-int score_x = 45;
-int score_y = 18;
-int level_x = 45;
-int level_y = 22;
 
 void print_start_ui() {
     printf("\033[2J");
 
     for (int i = 0; i < 47; ++i) {
-        printf("\033[%d;%dH\033[43m \33[0m", 5, i + 10);
-        printf("\033[%d;%dH\033[43m \33[0m", 30, i + 10);
+        printf("\033[%d;%dH\033[43m  \033[0m", 5, i + 10);
+        printf("\033[%d;%dH\033[43m  \033[0m", 30, i + 10);
     }
 
     for (int i = 0; i < 26; ++i) {
-        printf("\033[%d;%dH\033[43m \033[0,", i + 5, 10);
-        printf("\033[%d;%dH\033[43m \033[0,", i + 5, 40);
-        printf("\033[%d;%dH\033[43m \033[0,", i + 5, 56);
+        printf("\033[%d;%dH\033[43m  \033[0,", i + 5, 10);
+        printf("\033[%d;%dH\033[43m  \033[0,", i + 5, 40);
+        printf("\033[%d;%dH\033[43m  \033[0,", i + 5, 56);
     }
 
     for (int i = 0; i < 17; ++i)
-        printf("\033[%d;%dH\33[43m \033[0m", 12, 40 + i);
+        printf("\033[%d;%dH\33[43m  \033[0m", 12, 40 + i);
 
     printf("\033[%d;%dH分数:\033[0m", score_y, score_x);
     printf("\033[%d;%dH等级:\033[0m", level_y, level_x);
@@ -82,6 +73,7 @@ void sig_handler() {
     move_down(dynamic_num, dynamic_mode);
     if (judge_end_game() == 1) {
         game_over();
+        recover_attribute();
         exit(0);
     }
 }
@@ -90,6 +82,6 @@ int main() {
     init_game_ui();
     signal(SIGALRM, sig_handler);
     alarm_us(tm);
-    while (1);
+    key_control();
     return 0;
 }
