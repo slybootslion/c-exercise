@@ -54,31 +54,34 @@ int shape[7][4][18] =
                         {0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 2, 1}},              //
         };
 
-//指定位置输出 图形
-//n---7图案中的选择某个图案
-//m---4个方向中某个方向。
-//x,y指定的坐标
-//c  颜色
-void print_mode_shape(int n, int m, int x, int y, int c) {
-    int i = 0;
-    int xx = x;
-    int yy = y;
-    for (i = 0; i < 16; i++) {
-        //4 * 4方格，每经过4行,纵坐标 + 1
+void print_block(const int *block, int x, int y, int color) {
+    int bx = x;
+    for (int i = 0; i < 16; ++i) {
         if (i != 0 && i % 4 == 0) {
-            yy += 1;
-            xx = x;
+            bx = x;
+            y += 1;
         }
-
-        if (shape[n][m][i] == 1) {
-            //指定坐标输出
-            printf("\033[%d;%dH", yy, xx);
-            //输出颜色[]
-            printf("\033[%dm[]", c);
-            //关闭颜色
+        if (block[i] == 1) {
+            printf("\033[%d;%dH", y, bx);
+            printf("\033[37;%dm.`", color);
             printf("\033[0m");
         }
-        //因此[]占2个位置，所以每次输出坐标偏移2个位置
-        xx += 2;
+        bx += 2;
     }
+}
+
+int main() {
+    printf("\033[2J");
+    int x = 4, y = 2;
+    int colors[4] = {43, 44, 45, 46};
+    for (int i = 0; i < 7; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            print_block(shape[i][j], x, y, colors[j]);
+            x += 10;
+        }
+        x = 4;
+        y += 5;
+    }
+    printf("\n");
+    return 0;
 }
