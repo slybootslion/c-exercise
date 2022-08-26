@@ -1,5 +1,5 @@
 //
-// Created by SlybootsLion on 2022/8/20.
+// Created by SlybootsLion on 2022/8/25.
 //
 
 #ifndef BASIC_CALENDAR_H
@@ -9,16 +9,10 @@
 
 #define LE_YEAR 1
 
-extern int Isleap(int year);
-
-extern int Total_day(int year, int month, int day);
-
-extern int max_day(int year, int month);
-
-extern int get_week(int year, int month, int day);
-
-extern char *weekday(int year, int month, int day);
-
-extern void display_month(int year, int month, int day);
+int Isleap (int year);
+int total_day(int year, int month, int day);
+int max_day(int year, int month);
+char *display_week(int year, int month, int day);
+void display_month(int year, int month, int day);
 
 #endif //BASIC_CALENDAR_H

@@ -1,30 +1,26 @@
-#include <stdio.h>
-#include <signal.h>
-#include <sys/time.h>
-
 //
 // Created by SlybootsLion on 2022/8/23.
 //
-int c = 0;
 
-void sig_handler() {
-    printf("rec signal\n");
-    c++;
-}
+#include <stdio.h>
+#include <sys/types.h>
+#include <string.h>
 
-int main() {
-    if (signal(SIGALRM, sig_handler) == SIG_ERR) {
-        printf("signal call is error!\n");
-        return -1;
+#define ELETYPE int
+#define MAX 5
+
+struct sqList
+{
+    ELETYPE data[MAX];
+    int i;
+};
+
+int main(int argc, const char *argv[])
+{
+    struct sqList sql = {{0}, 0};
+    for( ; sql.i <= MAX; sql.i++){
+        sql.data[sql.i] = 2;
+        printf("%d\t\n", sql.data[sql.i]);
     }
-
-    struct itimerval val = {{1, 0},
-                            {1, 0}};
-
-    setitimer(ITIMER_REAL, &val, NULL);
-    while (1) {
-        if (c == 100)
-            break;
-    };
-    return 0;
 }
+
