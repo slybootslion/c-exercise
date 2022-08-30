@@ -19,10 +19,6 @@ loopnode_t *create_empty_looplist() {
     return head;
 }
 
-int is_empty_looplist(loopnode_t *head) {
-    return head->next == head ? 1 : 0;
-}
-
 void insert_head_looplist(loopnode_t *head, datatype_t data) {
     loopnode_t *temp = NULL;
     temp = (loopnode_t *) malloc(sizeof(loopnode_t));
@@ -38,4 +34,8 @@ void printf_data_looplist(loopnode_t *head) {
         p = p->next;
     }
     putchar('\n');
+}
+
+int is_empty_looplist(loopnode_t *head) {
+    return head->next == head ? 1 : 0;
 }
