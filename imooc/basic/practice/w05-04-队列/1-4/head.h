@@ -48,6 +48,4 @@ extern int enter_linkqueue(linkqueue_t *q, data_t data);
 
 extern data_t delete_linkqueue(linkqueue_t *q);
 
-//链式队列的操作
-
 #endif //BASIC_HEAD_H
