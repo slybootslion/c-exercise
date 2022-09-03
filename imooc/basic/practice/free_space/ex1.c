@@ -1,11 +1,19 @@
 #include "head.h"
 
+#define ELETYPE int
+#define MAX 5
+
+struct sqList {
+    ELETYPE data[MAX];
+    int i;
+};
+
 int main() {
-    char a = -3;
-    int b = a;
-    unsigned int c = b;
-
-    printf("a = %c b = %d c = %d\n", a, b, c); // -3 -3 253
-
+    struct sqList sql = {{0}, 0};
+    for (; sql.i <= MAX; sql.i++) {
+        printf("sql.i = %d\n", sql.i);
+        sql.data[sql.i] = 2;
+//        printf("%d\t\n", sql.data[sql.i]);
+    }
     return 0;
 }
