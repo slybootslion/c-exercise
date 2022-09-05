@@ -28,7 +28,9 @@ void push_linkstack(linkstack_t *s, datatype_t data) {
         return;
     }
     temp->data = data;
+    temp->next = s->top;
     s->top = temp;
+
     s->n++;
 }
 
@@ -38,6 +40,7 @@ datatype_t pop_linkstack(linkstack_t *s) {
 
     temp = s->top;
     data = temp->data;
+
     s->top = temp->next;
 
     free(temp);

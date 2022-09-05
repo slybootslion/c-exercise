@@ -14,7 +14,7 @@ bitree_t *create_binatry_tree(int n) {
     root->lchild = root->rchild = NULL;
 
     printf("Input %d node data : ", n);
-    scanf("%d", &(root->n));
+    scanf("%c", &(root->data));
 
     while (getchar() != '\n');
 
@@ -39,11 +39,11 @@ void pre_order(bitree_t *root) {
             push_linkstack(s, temp);
             temp = temp->lchild;
         }
-    }
 
-    if (!is_empty_linkstack(s)) {
-        temp = pop_linkstack(s);
-        temp = temp->rchild;
+        if (!is_empty_linkstack(s)) {
+            temp = pop_linkstack(s);
+            temp = temp->rchild;
+        }
     }
 
     free(s);
@@ -53,16 +53,44 @@ void in_order(bitree_t *root) {
     if (root == NULL)
         return;
 
-    in_order(root->lchild);
-    printf("(%d: %c) ", root->n, root->data);
-    in_order(root->rchild);
+    linkstack_t *s = create_empty_linkstack();
+    bitree_t *temp = root;
+
+    while (temp != NULL || !is_empty_linkstack(s)) {
+        if (temp != NULL) {
+            push_linkstack(s, temp);
+            temp = temp->lchild;
+        } else {
+            temp = pop_linkstack(s);
+            printf("(%d: %c) ", temp->n, temp->data);
+            temp = temp->rchild;
+        }
+    }
+    free(s);
 }
 
 void post_order(bitree_t *root) {
     if (root == NULL)
         return;
 
-    post_order(root->lchild);
-    post_order(root->rchild);
-    printf("(%d: %c)", root->n, root->data);
+    linkstack_t *s = create_empty_linkstack();
+    bitree_t *cur = NULL;
+    bitree_t *pre = NULL;
+
+    push_linkstack(s, root);
+    while (!is_empty_linkstack(s)) {
+        cur = get_top_data(s);
+        if ((cur->lchild == NULL && cur->rchild == NULL) ||
+            (pre != NULL && (pre == cur->lchild || pre == cur->rchild))) {
+            printf("(%d: %c) ", cur->n, cur->data);
+            pop_linkstack(s);
+            pre = cur;
+        } else {
+            if (cur->rchild != NULL)
+                push_linkstack(s, cur->rchild);
+            if (cur->lchild != NULL)
+                push_linkstack(s, cur->lchild);
+        }
+    }
+    free(s);
 }

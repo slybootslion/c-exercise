@@ -20,6 +20,6 @@ int main () {
     printf("post_order: ");
     post_order(root);
     printf("\n");
-    
+
     return 0;
 }
