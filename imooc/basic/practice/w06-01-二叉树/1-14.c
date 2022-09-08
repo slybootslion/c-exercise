@@ -221,7 +221,7 @@ huff_bufp huffman_decoding(huff_resultp result) {
             root = (code[i] == '0' ? root->left : root->right);
             i++;
         }
-        res->code[idx++] = root->key;
+        res->code[idx++] = (char)(root->key);
     }
     res->code[idx] = '\0';
     return res;
