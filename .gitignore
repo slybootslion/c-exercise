@@ -6,6 +6,7 @@ dist
 lerna-debug.log
 cmake-build-debug-
 cmake-build-mingw-debug
+cmake-build-debug
 
 # local env files
 .env
