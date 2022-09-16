@@ -19,8 +19,8 @@ int is_empty_stack(stack_t *s) {
 }
 
 void push_stack(stack_t *s, int data) {
-    s->buf[s->top] = data;
     s->top++;
+    s->buf[s->top] = data;
 }
 
 int pop_stack(stack_t *s) {
@@ -31,6 +31,12 @@ int pop_stack(stack_t *s) {
 
 int get_top_data(stack_t *s) {
     return s->buf[s->top];
+}
+
+void print_stack(stack_t *s) {
+    for (int i = 0; i <= s->top; ++i)
+        printf("num: %d char: %c\n", s->buf[i], s->buf[i]);
+    putchar('\n');
 }
 
 // 下面这些发布就可以了 上面都是链表操作
@@ -57,12 +63,11 @@ int check_priority(char op) {
 
 void calculate_handle(stack_t *s1, stack_t *s2, char op) {
     if (is_empty_stack(s2)) {
-        if (op != '0')
+        if (op != ' ')
             push_stack(s2, op);
         return;
     }
     int pre_op = get_top_data(s2);
-    printf("%c\n", pre_op);
     if (check_priority((char) pre_op) < check_priority(op)) {
         push_stack(s2, op);
     } else {
@@ -75,7 +80,7 @@ void calculate_handle(stack_t *s1, stack_t *s2, char op) {
                 res = n1 + n2;
                 break;
             case '-':
-                res = n1 - n2;
+                res = n2 - n1;
                 break;
             case '*':
                 res = n1 * n2;
@@ -109,8 +114,9 @@ int main() {
         if (*p >= '0' && *p <= '9') {
             num_str[c] = *p;
             c++;
-            if (*(p + 1) < '0' || *(p + 1) > '9')
+            if (*(p + 1) < '0' || *(p + 1) > '9') {
                 push_stack(stack1, to_num(num_str, c));
+            }
             p++;
             continue;
         } else {
@@ -120,6 +126,7 @@ int main() {
             continue;
         }
     }
-    printf("%d\n", get_top_data(stack1));
+    calculate_handle(stack1, stack2, ' ');
+    printf("%s = %d\n", buf, get_top_data(stack1));
     return 0;
 }
