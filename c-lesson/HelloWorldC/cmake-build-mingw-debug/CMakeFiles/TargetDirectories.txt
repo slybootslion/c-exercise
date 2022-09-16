@@ -1,3 +1,0 @@
-D:/Code/cCode/c-exercise/c-lesson/HelloWorldC/cmake-build-mingw-debug/CMakeFiles/HelloWorldC.dir
-D:/Code/cCode/c-exercise/c-lesson/HelloWorldC/cmake-build-mingw-debug/CMakeFiles/edit_cache.dir
-D:/Code/cCode/c-exercise/c-lesson/HelloWorldC/cmake-build-mingw-debug/CMakeFiles/rebuild_cache.dir

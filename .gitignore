@@ -5,6 +5,7 @@ node_modules
 dist
 lerna-debug.log
 cmake-build-debug-
+cmake-build-mingw-debug
 CMakeLists.txt
 
 # local env files

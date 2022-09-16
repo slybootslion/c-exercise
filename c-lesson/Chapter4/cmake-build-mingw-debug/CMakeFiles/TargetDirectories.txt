@@ -1,3 +1,0 @@
-D:/Code/cCode/c-exercise/c-lesson/Chapter4/cmake-build-mingw-debug/CMakeFiles/Chapter4.dir
-D:/Code/cCode/c-exercise/c-lesson/Chapter4/cmake-build-mingw-debug/CMakeFiles/edit_cache.dir
-D:/Code/cCode/c-exercise/c-lesson/Chapter4/cmake-build-mingw-debug/CMakeFiles/rebuild_cache.dir
