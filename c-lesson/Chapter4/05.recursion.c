@@ -4,18 +4,18 @@ unsigned int Factorial(unsigned int n) {
   return n == 0 ? 1 : n * Factorial(n - 1);
 }
 
-unsigned int Fibonacci(unsigned int n) {
-  if (n == 1 || n == 0)
-    return n;
-  else
-    return Fibonacci(n - 1) + Fibonacci(n - 2);
-}
-
 unsigned int FactorialByIteration(unsigned int n) {
   unsigned int result = 1;
   for (unsigned int i = n; i > 0; --i)
     result *= i;
   return result;
+}
+
+unsigned int Fibonacci(unsigned int n) {
+  if (n == 1 || n == 0)
+    return n;
+  else
+    return Fibonacci(n - 1) + Fibonacci(n - 2);
 }
 
 unsigned int FibonacciByIteration(unsigned int n) {
