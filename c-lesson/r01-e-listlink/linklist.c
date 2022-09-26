@@ -56,3 +56,36 @@ void insert_order_linklist(linknode_t *head, datatype_t data) {
   temp->next = p->next;
   p->next = temp;
 }
+
+int is_empty_linklist(linknode_t *head) {
+  return head->next == NULL ? 1 : 0;
+}
+
+int delete_data_linklist(linknode_t *head, datatype_t data) {
+  linknode_t *p = NULL;
+  linknode_t *q = NULL;
+
+  if (is_empty_linklist(head))
+    return -1;
+
+  int flag = 0;
+  p = head;
+  while (p->next != NULL) {
+    if (p->next->data == data) {
+      q = p->next;
+      p->next = q->next;
+      q = NULL;
+      flag = 1;
+    } else {
+      p = p->next;
+    }
+  }
+
+  if (flag == 0)
+    return -2;
+  else {
+    printf("delete %d is successful!\n", data);
+  }
+
+  return 0;
+}
