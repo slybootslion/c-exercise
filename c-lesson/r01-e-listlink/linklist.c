@@ -89,3 +89,29 @@ int delete_data_linklist(linknode_t *head, datatype_t data) {
 
   return 0;
 }
+
+void reverse_data_linklist(linknode_t *head) {
+  linknode_t *p = NULL;
+  linknode_t *q = NULL;
+
+  p = head->next->next;
+  head->next->next = NULL;
+
+  while (p != NULL) {
+    q = p->next;
+    p->next = head->next;
+    head->next = p;
+    p = q;
+  }
+}
+
+void clean_up_linklist(linknode_t *head) {
+  linknode_t *p = head;
+  linknode_t *q = NULL;
+  while (p != NULL) {
+    q = p->next;
+    printf_data_linklist(p);
+    free(p);
+    p = q;
+  }
+}

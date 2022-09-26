@@ -21,5 +21,7 @@ extern void insert_head_linklist(linknode_t *head, datatype_t data);
 extern void printf_data_linklist(linknode_t *head);
 extern void insert_tail_linklist(linknode_t *head, datatype_t data);
 extern void insert_order_linklist(linknode_t *head, datatype_t data);
+extern void reverse_data_linklist(linknode_t *head);
+extern void clean_up_linklist(linknode_t *head);
 
 #endif //R01_E_LISTLINK__HEAD_H_

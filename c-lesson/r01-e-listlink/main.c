@@ -15,7 +15,14 @@ int main() {
     insert_tail_linklist(head, data);
 //    insert_order_linklist(head, data);
   }
-
   printf_data_linklist(head);
+
+  printf("==== reverse ====\n");
+  reverse_data_linklist(head);
+  printf_data_linklist(head);
+
+  printf("==== clean ====\n");
+  clean_up_linklist(head);
+
   return 0;
 }
