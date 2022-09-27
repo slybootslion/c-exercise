@@ -23,7 +23,7 @@ typedef struct {
 
 extern linkqueue_t *create_empty_linkqueue();
 extern int is_empty_linkqueue(linkqueue_t *q);
-extern int enter_linkqueue(linkqueue_t *q, data_t data);
+extern void enter_linkqueue(linkqueue_t *q, data_t data);
 extern data_t delete_linkqueue(linkqueue_t *q);
 
 #endif //R07_E_LINKQUEUE__LINKSTACK_H_
