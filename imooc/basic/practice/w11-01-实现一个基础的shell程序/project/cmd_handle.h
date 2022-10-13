@@ -9,6 +9,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <dirent.h>
+#include <stdbool.h>
 
 #define DEBUG
 
