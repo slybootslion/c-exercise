@@ -7,6 +7,10 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <dirent.h>
+
+#define DEBUG
 
 #define SZ_NAME 8
 #define SZ_ARG 32
