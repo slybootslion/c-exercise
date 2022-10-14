@@ -10,6 +10,10 @@
 #include <sys/stat.h>
 #include <dirent.h>
 #include <stdbool.h>
+#include <pwd.h>
+#include <grp.h>
+#include <time.h>
+#include <unistd.h>
 
 #define DEBUG
 

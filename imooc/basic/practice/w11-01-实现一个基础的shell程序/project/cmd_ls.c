@@ -1,7 +1,6 @@
 //
 // Created by SlybootsLion on 2022/10/12.
 //
-
 #include "cmd_ls.h"
 
 int cmd_ls_execute(cmd_t *pcmd) {
@@ -74,6 +73,20 @@ int get_file_attr(file_attr_t *pattr, const char *path, const char *filename, bo
   }
 
   get_file_type_ls(pattr);
+  get_file_permission(pattr);
+  get_file_uname(pattr);
+  get_file_gname(pattr);
+  get_file_last_modify_time(pattr);
+
+  if (pattr->f_attr_type == 'l') {
+    ret = (int) readlink(path, pattr->f_attr_link_content, sizeof(pattr->f_attr_link_content));
+    if (ret == -1) {
+      perror("[ERROR] readlink(): ");
+      return -1;
+    }
+  }
+
+  strcpy(pattr->f_attr_name, filename);
 
   return 0;
 }
@@ -85,11 +98,23 @@ void make_path_ls(char *path, const char *dirpath, const char *filename) {
 }
 
 void show_file_attributes(file_attr_t *pattr) {
-  printf(" %c", pattr->f_attr_type);
+  printf(" %c ", pattr->f_attr_type);
+  printf(" %s ", pattr->f_attr_permission);
+  printf(" %ld ", pattr->f_attr_stat_info.st_nlink);
+  printf(" %s ", pattr->f_attr_uname);
+  printf(" %s ", pattr->f_attr_gname);
+  printf(" %ld ", pattr->f_attr_stat_info.st_size);
+  printf(" %s ", pattr->f_attr_mtime);
+
+  if (pattr->f_attr_type == 'l')
+    printf(" %s -> %s ", pattr->f_attr_name, pattr->f_attr_link_content);
+  else
+    printf(" %s ", pattr->f_attr_name);
+
   putchar('\n');
 }
 
-int get_file_type_ls(struct file_attribute *pattr) {
+void get_file_type_ls(struct file_attribute *pattr) {
   mode_t mode = pattr->f_attr_stat_info.st_mode;
   switch (mode & S_IFMT) {
     case S_IFBLK:
@@ -116,5 +141,35 @@ int get_file_type_ls(struct file_attribute *pattr) {
     default:
       break;
   }
-  return 0;
+}
+
+void get_file_permission(struct file_attribute *pattr) {
+  mode_t mode = pattr->f_attr_stat_info.st_mode;
+  char perm[] = "rwx";
+
+  int index = 0;
+  for (int i = 8; i >= 0; i--) {
+    if (mode >> i & 0x1)
+      pattr->f_attr_permission[index] = perm[index % 3];
+    else
+      pattr->f_attr_permission[index] = '-';
+
+    index++;
+  }
+}
+
+void get_file_uname(struct file_attribute *pattr) {
+  struct passwd *pwd = getpwuid(pattr->f_attr_stat_info.st_uid);
+  strcpy(pattr->f_attr_uname, pwd->pw_name);
+}
+
+void get_file_gname(struct file_attribute *pattr) {
+  struct group *grp = getgrgid(pattr->f_attr_stat_info.st_gid);
+  strcpy(pattr->f_attr_gname, grp->gr_name);
+}
+
+void get_file_last_modify_time(struct file_attribute *pattr) {
+  char *timestr = ctime(&pattr->f_attr_stat_info.st_mtime);
+  strcpy(pattr->f_attr_mtime, timestr);
+  pattr->f_attr_mtime[strlen(timestr) - 1] = '\0';
 }

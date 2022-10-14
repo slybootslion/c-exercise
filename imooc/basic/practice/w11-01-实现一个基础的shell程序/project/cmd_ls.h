@@ -26,9 +26,14 @@ typedef struct file_attribute {
 
 extern int cmd_ls_execute(cmd_t *pcmd);
 extern int cmd_list_directory(const char *dirpath);
-extern int get_file_type_ls(struct file_attribute *pattr);
 extern int get_file_attr(struct file_attribute *pattr, const char *path, const char *filename, bool islink);
 extern void make_path_ls(char *path, const char *dirpath, const char *filename);
 extern void show_file_attributes(struct file_attribute *pattr);
+
+extern void get_file_type_ls(struct file_attribute *pattr);
+extern void get_file_permission(struct file_attribute *pattr);
+extern void get_file_uname(struct file_attribute *pattr);
+extern void get_file_gname(struct file_attribute *pattr);
+extern void get_file_last_modify_time(struct file_attribute *pattr);
 
 #endif //PROJECT__CMD_LS_H_
