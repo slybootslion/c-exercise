@@ -1,1 +1,0 @@
-D:\Code\cCode\c-exercise\hm\01_basic\02_snake\snake\x64\Debug\snake.exe
