@@ -1,0 +1,2 @@
+﻿  main.c
+D:\Code\cCode\c-exercise\hm\01_basic\02_snake\snake\main.c(42,8): warning C4013: “time”未定义；假设外部返回 int
