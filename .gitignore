@@ -29,4 +29,5 @@ yarn-error.log*
 *.sw?
 
 Debug
+x64
 main.out
