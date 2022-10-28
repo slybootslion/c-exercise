@@ -19,5 +19,7 @@ extern void fun_arg_pointer_out();
 extern void high_level_pointer();
 extern void change_pointer();
 extern void find_sub_string();
+extern void high_level_point_in();
+extern void high_level_point_in_stack();
 
 #endif //INC_01_POINTER__HEAD_H_

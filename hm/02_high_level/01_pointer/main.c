@@ -21,12 +21,18 @@ void pointer_arguments() {
   fun_arg_pointer_out();
 }
 
+void high_level_point_arguments() {
+  high_level_point_in();
+  high_level_point_in_stack();
+}
+
 int main() {
 //  copy_string();
 //  reverse_string();
 //  pointer_arguments();
 //  high_level_pointer();
 //  change_pointer();
-  find_sub_string();
+//  find_sub_string();
+high_level_point_arguments();
   return 0;
 }
