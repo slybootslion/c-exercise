@@ -1,5 +1,11 @@
 #include "head.h"
 
+/*
+ 指针做函数参数，具备输入和输出特性：
+    输入：主调函数分配内存
+	输出：被调用函数分配内存
+ * */
+
 void fun_in(char *p) {
   strcpy(p, "abcdefg");
 }

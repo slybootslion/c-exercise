@@ -16,5 +16,8 @@ extern void reverse_string1(char *str);
 extern void reverse_string2(char *str);
 extern void fun_arg_pointer_in();
 extern void fun_arg_pointer_out();
+extern void high_level_pointer();
+extern void change_pointer();
+extern void find_sub_string();
 
 #endif //INC_01_POINTER__HEAD_H_

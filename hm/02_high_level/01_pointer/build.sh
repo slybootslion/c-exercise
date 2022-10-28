@@ -1,3 +1,6 @@
 clear
-gcc main.c 01_copy_string.c 02_revers_string.c 03_pointer_arguments.c -o main.out
-./main.out
+cmake CMakeLists.txt
+make
+./01_pointer
+make clean
+rm -rf Makefile cmake_install.cmake CMakeCache.txt CMakeFiles

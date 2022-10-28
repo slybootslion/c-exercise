@@ -24,6 +24,9 @@ void pointer_arguments() {
 int main() {
 //  copy_string();
 //  reverse_string();
-  pointer_arguments();
+//  pointer_arguments();
+//  high_level_pointer();
+//  change_pointer();
+  find_sub_string();
   return 0;
 }
