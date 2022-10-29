@@ -23,7 +23,8 @@ void pointer_arguments() {
 
 void high_level_point_arguments() {
   high_level_point_in();
-  high_level_point_in_stack();
+  high_level_point_stack();
+  high_level_point_out();
 }
 
 int main() {
@@ -33,6 +34,7 @@ int main() {
 //  high_level_pointer();
 //  change_pointer();
 //  find_sub_string();
-high_level_point_arguments();
+//  high_level_point_arguments();
+  high_point_file();
   return 0;
 }
