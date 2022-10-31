@@ -35,6 +35,11 @@ int main() {
 //  change_pointer();
 //  find_sub_string();
 //  high_level_point_arguments();
-  high_point_file();
+//  high_point_file();
+//  set_array_point();
+//  sort_pint_array();
+//  allocate_memory();
+  select_sort_in();
   return 0;
+
 }

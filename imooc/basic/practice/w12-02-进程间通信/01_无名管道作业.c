@@ -37,7 +37,7 @@ void pipe_main02() {
   } else if (cpid > 0) {
     while (1) {
       char input_str[SZ_STR] = {0};
-      sleep(1);
+      usleep(100);
       printf("input string -->");
       fgets(input_str, SZ_STR, stdin);
       input_str[strlen(input_str) - 1] = '\0';

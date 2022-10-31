@@ -24,5 +24,9 @@ extern void high_level_point_stack();
 extern void high_level_point_out();
 extern void free_space(char **p);
 extern void high_point_file();
+extern void set_array_point();
+extern void sort_pint_array();
+extern void allocate_memory();
+extern void select_sort_in ();
 
 #endif //INC_01_POINTER__HEAD_H_
