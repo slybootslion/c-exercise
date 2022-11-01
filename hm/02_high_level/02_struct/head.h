@@ -10,5 +10,6 @@
 #include <string.h>
 
 extern void exec01();
+extern void exec02();
 
 #endif //INC_02_STRUCT__HEAD_H_
