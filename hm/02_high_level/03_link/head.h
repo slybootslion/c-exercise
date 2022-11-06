@@ -12,9 +12,10 @@
 typedef struct LinkNode {
   int num;
   struct LinkNode *next;
-}link_node_t;
+} link_node_t;
 
-extern void test01 ();
-extern void test02 ();
+extern void test01();
+extern void test02();
+extern void test03();
 
 #endif //INC_03_LINK__HEAD_H_
