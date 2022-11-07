@@ -1,0 +1,20 @@
+#英雄的Id
+heroId:1
+#英雄的姓名
+heroName:琦玉
+#英雄攻击力
+heroAtk:1000
+#英雄防御力
+heroDef:9999
+#英雄简介
+heroInfo:无敌
+
+
+
+aaaaaaaaaaaaa
+struct ConfigInfo
+{
+   char key[64];
+   char value[64];
+}
+struct ConfigInfo * pArray  = malloc( sizeof(struct ConfigInfo) * 5  )
