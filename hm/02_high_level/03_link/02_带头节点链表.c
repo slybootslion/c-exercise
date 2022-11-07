@@ -77,7 +77,24 @@ void remove_linklist(link_node_t *p_head, int val) {
     curr = curr->next;
     prev = prev->next;
   }
+}
 
+void clear_linklist(link_node_t *p_head) {
+  if (p_head == NULL)
+    return;
+  link_node_t *curr = p_head->next;
+  while (curr != NULL) {
+    link_node_t *next = curr->next;
+    free(curr);
+    curr = next;
+  }
+  p_head->next = NULL;
+}
+
+void destroy_linklist(link_node_t *p_head) {
+  clear_linklist(p_head);
+  free(p_head);
+  p_head = NULL;
 }
 
 void test03() {
@@ -92,4 +109,15 @@ void test03() {
   remove_linklist(p, 100);
   remove_linklist(p, 200);
   foreach_linklist(p);
+
+  clear_linklist(p);
+  foreach_linklist(p);
+
+  insert_linklist(p, -1, 1000);
+  insert_linklist(p, -1, 2000);
+  insert_linklist(p, -1, 3000);
+  foreach_linklist(p);
+
+  destroy_linklist(p);
+  p = NULL;
 }
