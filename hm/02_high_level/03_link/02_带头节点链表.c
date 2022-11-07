@@ -61,6 +61,25 @@ void insert_linklist(link_node_t *p_head, int old_val, int new_val) {
   prev->next = new_node;
 }
 
+void remove_linklist(link_node_t *p_head, int val) {
+  if (p_head == NULL)
+    return;
+  link_node_t *prev = p_head;
+  link_node_t *curr = p_head->next;
+
+  while (curr != NULL) {
+    if (curr->num == val) {
+      prev->next = curr->next;
+      free(curr);
+      curr = NULL;
+      return;
+    }
+    curr = curr->next;
+    prev = prev->next;
+  }
+
+}
+
 void test03() {
   link_node_t *p = init_linklist();
   foreach_linklist(p);
@@ -68,6 +87,9 @@ void test03() {
   insert_linklist(p, 20, 100);
   insert_linklist(p, 21, 1000);
 
-  printf("插入节点后遍历的结果：\n");
+  foreach_linklist(p);
+
+  remove_linklist(p, 100);
+  remove_linklist(p, 200);
   foreach_linklist(p);
 }
