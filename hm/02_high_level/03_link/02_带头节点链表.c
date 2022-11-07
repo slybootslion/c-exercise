@@ -29,16 +29,45 @@ link_node_t *init_linklist() {
 }
 
 void foreach_linklist(link_node_t *p_head) {
+  if (p_head->next == NULL) {
+    printf("链表为空.\n");
+    return;
+  }
+  printf("遍历链表结果\n");
   link_node_t *temp = p_head->next;
   while (temp != NULL) {
     printf("%d ", temp->num);
     temp = temp->next;
   }
+  putchar('\n');
+}
+
+void insert_linklist(link_node_t *p_head, int old_val, int new_val) {
+  if (p_head == NULL)
+    return;
+  link_node_t *prev = p_head;
+  link_node_t *curr = p_head->next;
+
+  while (curr != NULL) {
+    if (curr->num == old_val)
+      break;
+    prev = prev->next;
+    curr = curr->next;
+  }
+
+  link_node_t *new_node = malloc(sizeof(link_node_t));
+  new_node->num = new_val;
+  new_node->next = curr;
+  prev->next = new_node;
 }
 
 void test03() {
   link_node_t *p = init_linklist();
+  foreach_linklist(p);
 
-  printf("遍历链表结果");
+  insert_linklist(p, 20, 100);
+  insert_linklist(p, 21, 1000);
+
+  printf("插入节点后遍历的结果：\n");
   foreach_linklist(p);
 }
