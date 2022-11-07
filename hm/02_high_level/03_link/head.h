@@ -17,5 +17,6 @@ typedef struct LinkNode {
 extern void test01();
 extern void test02();
 extern void test03();
+extern void test04();
 
 #endif //INC_03_LINK__HEAD_H_
