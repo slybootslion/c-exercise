@@ -12,7 +12,6 @@ void signal_sending() {
     if (ret == 0)
       fprintf(stdout, "father %d killed child %d\n", getpid(), p1);
     waitpid(p1, NULL, 0);
-    fprintf(stdout, "father %d exit\n", getpid());
     pid_t p2 = fork();
     if (p2 == 0) {
       fprintf(stdout, "\tchild %d running.\n", getpid());

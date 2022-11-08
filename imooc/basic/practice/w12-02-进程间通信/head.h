@@ -16,5 +16,8 @@ extern void pipe_main02();
 extern void test01();
 extern void test02();
 extern void signal_sending();
+extern void test03();
+extern void signal_handle();
+extern void test04();
 
 #endif //W12_02___HEAD_H_
