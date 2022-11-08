@@ -20,6 +20,7 @@ void alarm_test01() {
 void do_sig_child(int sig) {
   printf("Receive signal < %s > \n", strsignal(sig));
   wait(NULL);
+  kill(getpid(), SIGKILL);
 }
 
 void alarm_test02() {

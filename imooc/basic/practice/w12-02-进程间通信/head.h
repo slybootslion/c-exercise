@@ -8,6 +8,8 @@
 #include <unistd.h>
 #include <signal.h>
 #include <sys/wait.h>
+#include <sys/ipc.h>
+#include <sys/msg.h>
 
 #define SZ_STR 64
 
@@ -19,5 +21,7 @@ extern void signal_sending();
 extern void test03();
 extern void signal_handle();
 extern void test04();
+extern void test05();
+extern void alram_handle();
 
 #endif //W12_02___HEAD_H_

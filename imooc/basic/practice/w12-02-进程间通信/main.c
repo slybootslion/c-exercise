@@ -8,6 +8,8 @@ int main() {
 //  signal_sending();
 //  test03();
 //  signal_handle();
-  test04();
+//  test04();
+//  test05();
+  alram_handle();
   return 0;
 }
