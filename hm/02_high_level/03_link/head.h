@@ -23,5 +23,6 @@ extern void foreach_linklist(link_node_t *p_head);
 extern void insert_linklist(link_node_t *p_head, int old_val, int new_val);
 extern void linklist_exercise();
 extern void sort_exercise();
+extern void recursion_exercise();
 
 #endif //INC_03_LINK__HEAD_H_
