@@ -10,6 +10,10 @@ int main() {
 //  signal_handle();
 //  test04();
 //  test05();
-  alram_handle();
+//  alram_handle();
+//  test06();
+//  test07();
+//  test08();
+  sem_handle();
   return 0;
 }
