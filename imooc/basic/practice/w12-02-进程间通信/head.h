@@ -13,6 +13,7 @@
 #include <sys/shm.h>
 #include <sys/signal.h>
 #include <sys/sem.h>
+#include <pthread.h>
 
 #define SZ_STR 256
 #define PATHNAME "."
@@ -42,5 +43,8 @@ extern int sem_v(int semid, int semnum);
 extern int sem_del(int semid);
 extern void test08();
 extern void sem_handle();
+extern void test09();
+extern void test10();
+extern void fadenkommunikation();
 
 #endif //W12_02___HEAD_H_

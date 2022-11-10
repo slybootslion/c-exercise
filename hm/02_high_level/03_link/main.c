@@ -7,7 +7,7 @@ int main() {
 //  test04();
 
 //  linklist_exercise();
-//  sort_exercise();
-  recursion_exercise();
+  sort_exercise();
+//  recursion_exercise();
   return 0;
 }

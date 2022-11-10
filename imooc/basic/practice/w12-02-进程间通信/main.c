@@ -14,6 +14,9 @@ int main() {
 //  test06();
 //  test07();
 //  test08();
-  sem_handle();
+//  sem_handle();
+//  test09();
+//  test10();
+  fadenkommunikation();
   return 0;
 }
