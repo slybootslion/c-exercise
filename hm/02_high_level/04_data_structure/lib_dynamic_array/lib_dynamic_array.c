@@ -1,4 +1,4 @@
-#include "head.h"
+#include "../head.h"
 #include "lib_dynamic_array.h"
 
 d_array_t *init_dynamic_array(int capacity) {

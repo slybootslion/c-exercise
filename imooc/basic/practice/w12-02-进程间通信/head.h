@@ -46,5 +46,6 @@ extern void sem_handle();
 extern void test09();
 extern void test10();
 extern void fadenkommunikation();
+extern void test11();
 
 #endif //W12_02___HEAD_H_

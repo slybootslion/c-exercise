@@ -1,12 +1,9 @@
 #include "head.h"
-#include "lib_dynamic_array.h"
+#include "lib_dynamic_array/lib_dynamic_array.h"
 
-/*  */
-
-typedef struct Person {
-  char name[64];
-  int age;
-} person_t;
+void print_line() {
+  printf("-------------\n");
+}
 
 void print_person(void *data) {
   person_t *p = data;
