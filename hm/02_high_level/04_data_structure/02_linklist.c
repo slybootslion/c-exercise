@@ -96,6 +96,35 @@ void foreach_linklist(link_list list, void(*callback)(void *)) {
   }
 }
 
+int linklist_size(link_list list) {
+  if (list == NULL)
+    return -1;
+  linklist_t *linklist = list;
+  return linklist->size;
+}
+
+void clean_linklist(link_list list) {
+  if (list == NULL)
+    return;
+  linklist_t *linklist = list;
+  node_t *curr = linklist->p_head.next;
+  for (int i = 0; i < linklist->size; ++i) {
+    node_t *next = curr->next;
+    free(curr);
+    curr = next;
+  }
+  linklist->p_head.next = NULL;
+  linklist->size = 0;
+}
+
+void destroy_linklist(link_list list) {
+  if (list == NULL)
+    return;
+  clean_linklist(list);
+  free(list);
+  list = NULL;
+}
+
 /*  */
 void linklist() {
   person_t p1 = {"zhangsan1", 18};
@@ -115,14 +144,25 @@ void linklist() {
   insert_linklist(list, -1, &p6);
 
   foreach_linklist(list, print_person); // 2 5 3 1 4 6
+  printf("linklist size is: %d\n", linklist_size(list));
   print_line();
 
   remove_linknode_by_pos(list, 4);
   foreach_linklist(list, print_person);
+  printf("linklist size is: %d\n", linklist_size(list));
   print_line();
 
   person_t del_p = {"zhangsan2", 18};
   remove_linknode_by_value(list, &del_p, check_same_person);
   foreach_linklist(list, print_person);
+  printf("linklist size is: %d\n", linklist_size(list));
+  print_line();
 
+  clean_linklist(list);
+  foreach_linklist(list, print_person);
+  printf("linklist size is: %d\n", linklist_size(list));
+  print_line();
+
+  destroy_linklist(list);
+  list = NULL;
 }
