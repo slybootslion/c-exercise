@@ -19,5 +19,7 @@ extern void linklist();
 extern void print_person(void *data);
 extern int check_same_person(void *data, void *arr_data);
 extern void print_line();
+extern void linklist_company();
+extern void sequence_stack ();
 
 #endif //INC_04_DATA_STRUCTURE__HEAD_H_
