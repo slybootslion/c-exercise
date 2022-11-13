@@ -4,6 +4,7 @@ int main() {
 //  dynamic_array();
 //  linklist();
 //  linklist_company();
-  sequence_stack();
+//  sequence_stack();
+  link_stack_test();
   return 0;
 }
