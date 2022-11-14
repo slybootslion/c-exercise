@@ -22,5 +22,6 @@ extern void print_line();
 extern void linklist_company();
 extern void sequence_stack ();
 extern void link_stack_test ();
+extern void recursion_tree_exercise();
 
 #endif //INC_04_DATA_STRUCTURE__HEAD_H_
