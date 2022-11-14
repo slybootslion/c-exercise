@@ -19,6 +19,7 @@ int main(int argc, char *argv[]) {
 //  test10();
 //  fadenkommunikation();
 //  test11(argc, argv);
+  select_io_exec();
   return 0;
 }
 
