@@ -20,8 +20,11 @@ extern void print_person(void *data);
 extern int check_same_person(void *data, void *arr_data);
 extern void print_line();
 extern void linklist_company();
-extern void sequence_stack ();
-extern void link_stack_test ();
+extern void sequence_stack();
+extern void link_stack_test();
+extern void stack_exec();
+extern void sequence_queue();
+extern void link_queue_exercise();
 extern void recursion_tree_exercise();
 
 #endif //INC_04_DATA_STRUCTURE__HEAD_H_

@@ -19,9 +19,9 @@ void print_error(char *str, char *error_msg, char *pos) {
 }
 
 void exec1() {
-  //  char *str = "5+5*(6)+9/3*1)-(1+3(";
-//  char *str = "5+5*(6)+9/3*1-(1+3(";
-  char *str = "5+5*(6)+9/3*1-1+3";
+//    char *str = "5+5*(6)+9/3*1)-(1+3(";
+  char *str = "5+5*(6)+9/3*1-(1+3(";
+//  char *str = "5+5*(6)+9/3*1-1+3";
   char *p = str;
   seq_stack *stack = init_sequence_stack();
   while (*p != '\0') {

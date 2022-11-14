@@ -8,6 +8,8 @@ int main() {
 //  link_stack_test();
 //  stack_exec();
 //  sequence_queue();
-  link_queue_exercise();
+//  link_queue_exercise();
+ recursion_tree_exercise();
+
   return 0;
 }
