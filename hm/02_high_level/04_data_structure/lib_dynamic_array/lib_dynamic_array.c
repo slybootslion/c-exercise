@@ -8,8 +8,7 @@ d_array_t *init_dynamic_array(int capacity) {
   d_array_t *arr_p = malloc(sizeof(d_array_t));
   if (arr_p == NULL)
     return NULL;
-
-  arr_p->address = malloc(sizeof(void *) * arr_p->capacity);
+  arr_p->address = malloc(sizeof(void *) * capacity);
   arr_p->capacity = capacity;
   arr_p->size = 0;
 
