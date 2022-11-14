@@ -18,8 +18,8 @@ void print_error(char *str, char *error_msg, char *pos) {
   printf("↑\n");
 }
 
-void stack_exec() {
-//  char *str = "5+5*(6)+9/3*1)-(1+3(";
+void exec1() {
+  //  char *str = "5+5*(6)+9/3*1)-(1+3(";
 //  char *str = "5+5*(6)+9/3*1-(1+3(";
   char *str = "5+5*(6)+9/3*1-1+3";
   char *p = str;
@@ -45,4 +45,8 @@ void stack_exec() {
 
   destroy_sequence_stack(stack);
   stack = NULL;
+}
+
+void stack_exec() {
+  exec1();
 }

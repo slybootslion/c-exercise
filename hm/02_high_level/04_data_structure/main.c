@@ -6,6 +6,7 @@ int main() {
 //  linklist_company();
 //  sequence_stack();
 //  link_stack_test();
-  stack_exec();
+//  stack_exec();
+  sequence_queue();
   return 0;
 }
