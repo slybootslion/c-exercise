@@ -7,6 +7,7 @@ int main() {
 //  sequence_stack();
 //  link_stack_test();
 //  stack_exec();
-  sequence_queue();
+//  sequence_queue();
+  link_queue_exercise();
   return 0;
 }

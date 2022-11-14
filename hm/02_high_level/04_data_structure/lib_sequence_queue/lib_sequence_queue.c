@@ -56,5 +56,6 @@ void destroy_sequence_queue(seq_queue queue) {
   if (queue == NULL)
     return;
   destroy_dynamic_array(queue);
+  queue = NULL;
 }
 
