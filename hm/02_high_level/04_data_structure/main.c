@@ -9,7 +9,7 @@ int main() {
 //  stack_exec();
 //  sequence_queue();
 //  link_queue_exercise();
- recursion_tree_exercise();
-
+// tree_exercise();
+  insert_sort_exercise();
   return 0;
 }

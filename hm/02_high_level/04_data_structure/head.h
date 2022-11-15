@@ -25,6 +25,7 @@ extern void link_stack_test();
 extern void stack_exec();
 extern void sequence_queue();
 extern void link_queue_exercise();
-extern void recursion_tree_exercise();
+extern void tree_exercise();
+extern void insert_sort_exercise();
 
 #endif //INC_04_DATA_STRUCTURE__HEAD_H_
