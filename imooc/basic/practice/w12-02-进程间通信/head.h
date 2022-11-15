@@ -15,6 +15,7 @@
 #include <sys/sem.h>
 #include <pthread.h>
 #include <sys/select.h>
+#include <poll.h>
 
 #define SZ_STR 256
 #define PATHNAME "."
@@ -49,5 +50,6 @@ extern void test10();
 extern void fadenkommunikation();
 extern void test11();
 extern void select_io_exec();
+extern void poll_io_exec();
 
 #endif //W12_02___HEAD_H_
