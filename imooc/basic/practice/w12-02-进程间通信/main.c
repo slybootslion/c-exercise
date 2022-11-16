@@ -20,7 +20,8 @@ int main(int argc, char *argv[]) {
 //  fadenkommunikation();
 //  test11(argc, argv);
 //  select_io_exec();
-  poll_io_exec();
+//  poll_io_exec();
+epoll_io_exec();
   return 0;
 }
 
