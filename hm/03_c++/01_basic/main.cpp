@@ -2,25 +2,20 @@
 #include <cstring>
 using namespace std;
 
-namespace Diy {
-  class Student {
-   public:
-    char *name;
-    int age;
-    float score;
-   public:
-    void say() const {
-      printf("%s的年龄是 %d，成绩是 %f\n", name, age, score);
-    }
-  };
+void func(char *&temp) {
+  char *p = (char *) malloc(64);
+  memset(p, 0, 64);
+  strcpy(p, "zhangsan");
+  temp = p;
+}
+
+void test() {
+  char *mp = NULL;
+  func(mp);
+  cout << mp << endl;
 }
 
 int main() {
-  Diy::Student stu1;
-//  strcpy(stu1.name, "zhangsan");
-  stu1.age = 15;
-  stu1.score = 92.5f;
-  stu1.say();
-
+  test();
   return 0;
 }
