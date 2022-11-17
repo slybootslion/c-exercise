@@ -1,21 +1,7 @@
-#include <iostream>
-#include <cstring>
-using namespace std;
-
-void func(char *&temp) {
-  char *p = (char *) malloc(64);
-  memset(p, 0, 64);
-  strcpy(p, "zhangsan");
-  temp = p;
-}
-
-void test() {
-  char *mp = NULL;
-  func(mp);
-  cout << mp << endl;
-}
+#include "head.h"
 
 int main() {
-  test();
+  class_basic_exercise();
+//  c_plus_use_c_file_exercise();
   return 0;
 }
