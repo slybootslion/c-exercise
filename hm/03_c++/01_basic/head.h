@@ -7,10 +7,11 @@
 
 using namespace std;
 
-extern void print_line();
+void print_line();
 
-extern void class_basic_exercise();
-extern void c_plus_use_c_file_exercise();
-extern void constructor_function_exercise();
+void class_basic_exercise();
+void c_plus_use_c_file_exercise();
+void constructor_function_exercise();
+void deep_clone_exercise ();
 
 #endif //INC_01_BASIC__HEAD_H_
