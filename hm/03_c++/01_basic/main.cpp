@@ -8,6 +8,7 @@ int main() {
 //  static_prop_exercise();
 //  single_mod_exercise();
 //  this_exercise();
-  exercise01();
+//  exercise01();
+  test_my_array();
   return 0;
 }
