@@ -18,5 +18,6 @@ void single_mod_exercise();
 void this_exercise();
 void exercise01();
 void test_my_array();
+void operator_overloading ();
 
 #endif //INC_01_BASIC__HEAD_H_

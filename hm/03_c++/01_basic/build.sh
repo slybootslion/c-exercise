@@ -1,6 +1,7 @@
 clear
 cmake CMakeLists.txt
 make
+clear
 echo ------------------------------------
 ./01_basic
 echo ------------------------------------
