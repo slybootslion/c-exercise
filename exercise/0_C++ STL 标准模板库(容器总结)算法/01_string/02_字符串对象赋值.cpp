@@ -1,9 +1,9 @@
 #include "../head.h"
-#include <string>
+#include "./01_string.h"
 
 namespace StringA2 {
 // String对象中的assign()函数，可以实现字符串之间的赋值。
-void test02() {
+void test01() {
   string str, new_str;
   str = "string"; // 基本的对象赋值
   new_str.assign(str);

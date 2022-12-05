@@ -2,13 +2,9 @@
 #define INC_01_STRING__HEAD_H_
 
 #include <iostream>
-
+#include <stdexcept>
 using namespace std;
-namespace StringA1 {
-extern void test01();
-}
-namespace StringA2 {
-extern void test02();
-}
+
+void print_line();
 
 #endif //INC_01_STRING__HEAD_H_

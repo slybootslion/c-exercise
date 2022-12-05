@@ -1,8 +1,7 @@
 #include "../head.h"
-#include <string>
+#include "./01_string.h"
 
 namespace StringA1 {
-
 // 可以通过构造函数完成初始化字符串。
 void test01() {
   string str("hello c++"); // 定义一个字符串
