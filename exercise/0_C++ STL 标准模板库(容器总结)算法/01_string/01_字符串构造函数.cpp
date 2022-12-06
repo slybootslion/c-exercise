@@ -1,5 +1,5 @@
 #include "../head.h"
-#include "./01_string.h"
+#include "./string.h"
 
 namespace StringA1 {
 // 可以通过构造函数完成初始化字符串。

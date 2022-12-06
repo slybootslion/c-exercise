@@ -1,5 +1,5 @@
 #include "../head.h"
-#include "./01_string.h"
+#include "./string.h"
 
 namespace StringA6 {
 // 使用str.c_str()将string转换为char，使用string str()将char强转为string

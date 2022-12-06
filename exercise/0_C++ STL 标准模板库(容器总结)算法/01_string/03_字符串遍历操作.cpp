@@ -1,5 +1,5 @@
 #include "../head.h"
-#include "./01_string.h"
+#include "./string.h"
 
 namespace StringA3 {
 // 通过使用str.size()函数获取到字符的具体个数，然后循环遍历输出这些字符串。

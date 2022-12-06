@@ -1,5 +1,5 @@
 #include "../head.h"
-#include "./01_string.h"
+#include "./string.h"
 
 namespace StringA5 {
 // 使用find()可查找字符串第一次出现的位置，使用compare比较字符串，使用replace()替换字符串。

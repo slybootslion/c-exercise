@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <algorithm>
 using namespace std;
 
 void print_line();

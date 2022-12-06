@@ -1,5 +1,5 @@
-#ifndef INC_0_C___STL____01_STRING_01_STRING_H_
-#define INC_0_C___STL____01_STRING_01_STRING_H_
+#ifndef INC_0_C___STL____01_STRING_STRING_H_
+#define INC_0_C___STL____01_STRING_STRING_H_
 #include <string>
 
 namespace StringA1 {
@@ -24,4 +24,4 @@ extern void test01();
 namespace StringA7 {
 extern void test01();
 }
-#endif //INC_0_C___STL____01_STRING_01_STRING_H_
+#endif //INC_0_C___STL____01_STRING_STRING_H_

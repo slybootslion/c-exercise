@@ -1,5 +1,5 @@
 #include "../head.h"
-#include "./01_string.h"
+#include "./string.h"
 
 namespace StringA4 {
 // 使用append()添加字符串，使用insert()插入字符串，使用erase()删除指定范围字符串。

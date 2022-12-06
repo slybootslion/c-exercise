@@ -1,5 +1,5 @@
 #include "../head.h"
-#include "./01_string.h"
+#include "./string.h"
 
 namespace StringA2 {
 // String对象中的assign()函数，可以实现字符串之间的赋值。
