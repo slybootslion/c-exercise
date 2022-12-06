@@ -25,6 +25,7 @@ int main() {
 //  VectorA7::test01();
 //  VectorA8::test01();
 //  VectorA9::test01();
-  MapA1::test01();
+//  MapA1::test01();
+  MapA2::test01();
   return 0;
 }
