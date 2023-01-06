@@ -20,4 +20,7 @@ typedef struct packet {
   char content[CONTENT_SZ];
 } packet_t;
 
+extern void client_init();
+extern void subscribe(char *topic);
+
 #endif //W13__PROJECT_CLIENT_CLIENT_H_

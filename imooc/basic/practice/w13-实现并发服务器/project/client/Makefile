@@ -1,4 +1,4 @@
-OBJS := sem.o shmfifo.o shm.o client.o main.o msg.o
+OBJS := sem.o shmfifo.o shm.o client.o main.o
 
 client:$(OBJS)
 	@gcc $^ -o $@ -lpthread

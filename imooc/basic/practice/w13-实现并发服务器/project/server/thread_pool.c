@@ -115,6 +115,7 @@ void *tp_worker(void *arg) {
     pthread_mutex_unlock(&pool->tp_mutex_pool);
     printf("[DEBUG] Thread %ld start working ...\n", pthread_self());
     task.function(task.arg);
+	free(task.arg);
     printf("[DEBUG] Thread %ld end working ...\n", pthread_self());
   }
 }

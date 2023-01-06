@@ -20,4 +20,7 @@ typedef struct packet {
   char content[CONTENT_SZ];
 } packet_t;
 
+extern void server_init();
+extern void run_loop();
+
 #endif //W13__PROJECT_SERVER_SERVER_H_
