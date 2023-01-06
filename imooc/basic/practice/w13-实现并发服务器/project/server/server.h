@@ -23,4 +23,6 @@ typedef struct packet {
 extern void server_init();
 extern void run_loop();
 
+extern void do_subscribe(char *topic, pid_t pid);
+
 #endif //W13__PROJECT_SERVER_SERVER_H_

@@ -1,4 +1,4 @@
-OBJS := sem.o shmfifo.o shm.o server.o main.o thread_pool.o
+OBJS := sem.o shmfifo.o shm.o server.o main.o thread_pool.o hashmap.o
 
 server:$(OBJS)
 	@gcc $^ -o $@ -lpthread
