@@ -6,6 +6,7 @@
 #define BLOCK_CNT 10
 #define THREAD_CNT 10
 #define TASK_CNT 10
+#define RESULT_SZ 5
 #define DEBUG
 
 static shm_fifo_t *g_shmfifo = NULL;
@@ -43,6 +44,11 @@ void do_subscribe(char *topic, pid_t pid) {
 void do_publish(char *topic, pid_t pid, char *content) {
 #ifdef DEBUG
   printf("do publish.\n");
+#endif
+  pid_t result[RESULT_SZ];
+  int ret = search_hash_table(g_hashtable, topic, result);
+#ifdef DEBUG
+  printf("ret = %d\n", ret);
 #endif
 }
 
