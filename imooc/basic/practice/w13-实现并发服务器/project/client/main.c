@@ -1,7 +1,8 @@
 #include "client.h"
 
-int main () {
+int main() {
   client_init();
-  subscribe("hello");
+  publish("hello", "ABCDEFG");
+//  subscribe("hello");
   return 0;
 }

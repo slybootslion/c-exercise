@@ -22,5 +22,6 @@ typedef struct packet {
 
 extern void client_init();
 extern void subscribe(char *topic);
+extern void publish(char *topic, const char *content);
 
 #endif //W13__PROJECT_CLIENT_CLIENT_H_

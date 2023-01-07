@@ -16,3 +16,14 @@ void subscribe(char *topic) {
 
   shmfifo_put(g_shmfifo, &packet);
 }
+
+void publish(char *topic, const char *content) {
+packet_t packet;
+// 封装数据包
+  strcpy(packet.topic, topic);
+  strcpy(packet.content, content);
+  packet.pid = getpid();
+  packet.mode = PUBLISH;
+  shmfifo_put(g_shmfifo, &packet);
+}
+

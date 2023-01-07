@@ -24,5 +24,6 @@ extern void server_init();
 extern void run_loop();
 
 extern void do_subscribe(char *topic, pid_t pid);
+extern void do_publish(char *topic, pid_t pid, char *content);
 
 #endif //W13__PROJECT_SERVER_SERVER_H_

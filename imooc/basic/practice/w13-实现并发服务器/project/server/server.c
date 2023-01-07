@@ -14,8 +14,10 @@ static hashtable_t **g_hashtable = NULL;
 
 void task_handler(void *arg) {
   packet_t *packet = (packet_t *)arg;
-  if (packet->mode == PUBLISH) printf("publish.\n");
-  else if (packet->mode == SUBSCRIBE) {
+  if (packet->mode == PUBLISH) {
+	printf("publish.\n");
+	do_publish(packet->topic, packet->pid, packet->content);
+  } else if (packet->mode == SUBSCRIBE) {
 	printf("subscribe.\n");
 	do_subscribe(packet->topic, packet->pid);
   }
@@ -35,6 +37,12 @@ void do_subscribe(char *topic, pid_t pid) {
   insert_data_hash(g_hashtable, topic, value);
 #ifdef DEBUG
   printf_hash_table(g_hashtable);
+#endif
+}
+
+void do_publish(char *topic, pid_t pid, char *content) {
+#ifdef DEBUG
+  printf("do publish.\n");
 #endif
 }
 
