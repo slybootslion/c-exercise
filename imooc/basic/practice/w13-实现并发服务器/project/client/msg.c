@@ -1,6 +1,6 @@
 #include "msg.h"
 
-#define PATHNAME "."
+#define PATHNAME "../msg"
 #define PRO_ID 102
 #define MSG_SZ 64
 
@@ -24,7 +24,6 @@ int msg_create() {
 }
 
 int msg_send(int msgid, long mtype, char *buf) {
-  int ret;
   struct msgbuf msg;
   msg.mtype = mtype;
   strcpy(msg.mtext, buf);

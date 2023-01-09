@@ -1,6 +1,6 @@
 #include "msg.h"
 
-#define PATHNAME "."
+#define PATHNAME "../msg"
 #define PRO_ID 102
 #define MSG_SZ 64
 
