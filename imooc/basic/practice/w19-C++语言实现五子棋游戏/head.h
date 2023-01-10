@@ -3,8 +3,9 @@
 
 #include <iostream>
 #include <string>
+
 using namespace std;
 namespace print_mi {
-void show();
+    void show();
 }
 #endif //W19_C____HEAD_H_
