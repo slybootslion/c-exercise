@@ -1,25 +1,21 @@
 #include "head.h"
-#define MAX_SZ 11
+#define MAX_SZ 12
 namespace print_mi {
-// \033[44;37m
-void print_method(int i, int j, const string &c) {
-  const string color = "\033[%d;%dH\033[" + c + ";37m*\033[0m\n";
-  cout << color.length() << endl;
-  const char *str_c;
-  for (int i = 0; i < color.length(); ++i) {
-	cout << color[i] << endl;
-  }
-  fprintf(stderr, str_c, i,j);
-}
-
 void show() {
+  fprintf(stderr, "\033[2J"); // 清屏
   for (int i = 0; i < MAX_SZ; ++i) {
 	for (int j = 0; j < MAX_SZ; ++j) {
 	  if (i == j) {
-		print_method(i, j, "41");
+		::fprintf(stderr, "\033[%d;%dH\033[41;37m*\033[0m\n", i, j);
+	  }
+	  if (i == 6) {
+		::fprintf(stderr, "\033[%d;%dH\033[42;37m*\033[0m\n", i, j);
 	  }
 	  if (j == 6) {
-		print_method(i, j, "42");
+		::fprintf(stderr, "\033[%d;%dH\033[43;37m*\033[0m\n", i, j);
+	  }
+	  if (i + j == MAX_SZ) {
+		::fprintf(stderr, "\033[%d;%dH\033[44;37m*\033[0m\n", i, j);
 	  }
 	}
   }
