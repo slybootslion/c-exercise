@@ -4,7 +4,7 @@
 
 using namespace std;
 
-namespace Message
+namespace Message1
 {
 	class Message
 	{
@@ -25,4 +25,8 @@ namespace Message
 	void main();
 }
 
+namespace Message2
+{
+	void main();
+}
 
