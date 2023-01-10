@@ -1,6 +1,6 @@
-#include <iostream>
+#include "./01_ 描述事物：自定义类型/Message.h"
 
 int main() {
-  std::cout << "Hello, World!" << std::endl;
-  return 0;
+	Message::main();
+	return 0;
 }

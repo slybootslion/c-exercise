@@ -4,18 +4,25 @@
 
 using namespace std;
 
-class Message
+namespace Message
 {
-public:
-	Message(int fromUserId, int toUserId, string& messageContent);
+	class Message
+	{
+	public:
+		Message(int fromUserId, int toUserId, string& messageContent);
 
-	void SendMessage();
+		void SendMessage();
 
-	const int MessageId;
-	const int ToUserId;
-	const int FromUserId;
-	const string& MessageContent;
-	static inline int MsgCount{ 0 };
-private:
-	int createMessageId();
-};
+		const int MessageId;
+		const int ToUserId;
+		const int FromUserId;
+		const string& MessageContent;
+		static inline int MsgCount{ 0 };
+	private:
+		int createMessageId();
+	};
+
+	void main();
+}
+
+
