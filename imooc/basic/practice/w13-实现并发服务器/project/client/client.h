@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/types.h>
+#include <pthread.h>
 
 enum work_mode {
   PUBLISH = 0, // 发布
@@ -23,5 +24,5 @@ typedef struct packet {
 extern void client_init();
 extern void subscribe(char *topic);
 extern void publish(char *topic, const char *content);
-
+extern void *do_client_subcribe(void *arg);
 #endif //W13__PROJECT_CLIENT_CLIENT_H_
