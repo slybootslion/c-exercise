@@ -26,8 +26,14 @@ private:
 
 class BlackChess: public Chess {
 public:
-	BlackChess(int x, int y): Chess("black", x, y){}
-	void show() const;
+	BlackChess(int x, int y);
+	void show() const override;
+};
+
+class WhiteChess: public Chess {
+public:
+	WhiteChess(int x, int y);
+	void show() const override;
 };
 
 #endif //W19_C___CHESS_H
