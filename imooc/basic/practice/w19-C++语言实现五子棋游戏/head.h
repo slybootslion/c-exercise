@@ -4,8 +4,12 @@
 #include <iostream>
 #include <string>
 
+#include "./Game/Chess.hpp"
+
 using namespace std;
-namespace print_mi {
-    void show();
+
+namespace print_mi
+{
+	void show();
 }
 #endif //W19_C____HEAD_H_

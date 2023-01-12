@@ -1,12 +1,12 @@
-#include "head.h"
-#include "./Game/Chess.h"
+//#include "head.h"
+#include "./Game/Chess.hpp"
 
 int main() {
-//    print_mi::show();
-	fprintf(stderr, "\033[2J");
-	BlackChess bc(10, 5);
-	bc.show();
-	WhiteChess wc(10, 6);
-	wc.show();
+//	fprintf(stderr, "\033[2J"); // 清屏
+//	BlackChess blackChess(10, 5);
+//	blackChess.show();
+	return 0;
+	WhiteChess whiteChess(10, 6);
+	whiteChess.show();
 	return 0;
 }
