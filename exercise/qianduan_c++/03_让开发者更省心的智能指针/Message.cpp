@@ -6,7 +6,7 @@ namespace Message4
 	class Message
 	{
 	public:
-		Message() : val{ "this is long length string" } {
+		Message() : val{ "this is long length string_tool" } {
 		}
 
 		~Message() = default;
