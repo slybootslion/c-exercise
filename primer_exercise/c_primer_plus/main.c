@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include "./chapter02/chapter02.h"
 
 int main() {
-	printf("Hello, World!\n");
+	chapter02();
 	return 0;
 }
