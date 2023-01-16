@@ -4,6 +4,7 @@
 #include "./04_一句顶一万句：模板/getLargestNumber.h"
 #include "./05_头等公民：函数/Function_ex.h"
 #include "./06_兵器库：常用的工具/tools.h"
+#include " 07_包罗万象：容器/content.h"
 
 int main() {
 //	Message1::main();
@@ -14,7 +15,8 @@ int main() {
 //	KeyValPair::main();
 //	Template3::main();
 //	FunctionEx::main();
-	Tools::main();
+//	Tools::main();
+	content::main();
 
 	return 0;
 }
