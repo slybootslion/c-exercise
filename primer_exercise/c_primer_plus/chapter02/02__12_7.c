@@ -12,7 +12,7 @@ void print_smail(int count) {
 		printf("Smile!");
 	putchar('\n');
 }
-void main02_12_7() {
+void main02__12_7() {
 	print_smail(3);
 	print_smail(2);
 	print_smail(1);

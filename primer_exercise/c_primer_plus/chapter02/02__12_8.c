@@ -21,7 +21,7 @@ void one_three() {
 	printf("three.\n");
 }
 
-void main02_12_8() {
+void main02__12_8() {
 	printf("starting now:\n");
 	one_three();
 	printf("done!\n");
