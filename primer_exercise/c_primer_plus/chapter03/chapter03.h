@@ -15,4 +15,12 @@ void main03__11_2();
 
 void main03__11_4();
 
+void main03__11_5();
+
+void main03__11_6();
+
+void main03__11_7();
+
+void main03__11_8();
+
 #endif //C_PRIMER_PLUS_CHAPTER03_H
