@@ -1,0 +1,23 @@
+# ninja log v5
+2	2040	6956510208652145	HelloWorld_autogen/timestamp	320c8d706f9658a7
+2	2040	6956510208652145	HelloWorld_autogen/mocs_compilation.cpp	320c8d706f9658a7
+2	2040	6956510208652145	D:/code/c-exercise/imooc/basic/qt/HelloWorld/build-HelloWorld-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/HelloWorld_autogen/timestamp	320c8d706f9658a7
+2	2040	6956510208652145	D:/code/c-exercise/imooc/basic/qt/HelloWorld/build-HelloWorld-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/HelloWorld_autogen/mocs_compilation.cpp	320c8d706f9658a7
+2051	7252	6956510266556718	CMakeFiles/HelloWorld.dir/main.cpp.obj	27c2f9477b02b94d
+2041	7274	6956510266771816	CMakeFiles/HelloWorld.dir/HelloWorld_autogen/mocs_compilation.cpp.obj	28155192154ee216
+16	1910	6956510653646445	HelloWorld_autogen/timestamp	320c8d706f9658a7
+16	1910	6956510653646445	HelloWorld_autogen/mocs_compilation.cpp	320c8d706f9658a7
+16	1910	6956510653646445	D:/code/c-exercise/imooc/basic/qt/HelloWorld/build-HelloWorld-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/HelloWorld_autogen/timestamp	320c8d706f9658a7
+16	1910	6956510653646445	D:/code/c-exercise/imooc/basic/qt/HelloWorld/build-HelloWorld-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/HelloWorld_autogen/mocs_compilation.cpp	320c8d706f9658a7
+1911	7277	6956510713055576	CMakeFiles/HelloWorld.dir/HelloWorld_autogen/mocs_compilation.cpp.obj	28155192154ee216
+1923	7421	6956510714530446	CMakeFiles/HelloWorld.dir/main.cpp.obj	27c2f9477b02b94d
+1935	7511	6956510715443077	CMakeFiles/HelloWorld.dir/mainwindow.cpp.obj	c47129b229ed897
+7512	7939	6956510719681383	HelloWorld.exe	62a2ffbc30b69ca7
+12	1916	6956512335915359	HelloWorld_autogen/timestamp	320c8d706f9658a7
+12	1916	6956512335915359	HelloWorld_autogen/mocs_compilation.cpp	320c8d706f9658a7
+12	1916	6956512335915359	D:/code/c-exercise/imooc/basic/qt/HelloWorld/build-HelloWorld-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/HelloWorld_autogen/timestamp	320c8d706f9658a7
+12	1916	6956512335915359	D:/code/c-exercise/imooc/basic/qt/HelloWorld/build-HelloWorld-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/HelloWorld_autogen/mocs_compilation.cpp	320c8d706f9658a7
+1918	7193	6956512394533391	CMakeFiles/HelloWorld.dir/HelloWorld_autogen/mocs_compilation.cpp.obj	28155192154ee216
+1942	7263	6956512395476790	CMakeFiles/HelloWorld.dir/main.cpp.obj	27c2f9477b02b94d
+1929	7445	6956512397282358	CMakeFiles/HelloWorld.dir/mainwindow.cpp.obj	c47129b229ed897
+7445	7953	6956512402330961	HelloWorld.exe	62a2ffbc30b69ca7
