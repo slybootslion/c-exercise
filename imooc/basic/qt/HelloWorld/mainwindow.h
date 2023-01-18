@@ -14,6 +14,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+signals:
+    void mySignal_1();
+    void mySignal_2(int data);
+public slots:
+    void mySlot_1();
+    void mySlot_2(int data);
 
 private:
     Ui::MainWindow *ui;

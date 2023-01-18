@@ -54,7 +54,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "hello world", nullptr));
+        pushButton->setText(QString());
     } // retranslateUi
 
 };
