@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
+#include "signalslot.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     emit mySignal_1();
     emit mySignal_2(100);
+
+    SignalSlot *ssObj = new SignalSlot;
+    connect(this, &MainWindow::mySignal_1, ssObj, &SignalSlot::testSlot);
 }
 
 MainWindow::~MainWindow()
@@ -32,5 +36,11 @@ void MainWindow::mySlot_1()
 void MainWindow::mySlot_2(int data)
 {
     qDebug() << "call mySlot(int data)"<< data;
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    qDebug() << "call on pushbutton clicked()";
+    emit mySignal_1();
 }
 

@@ -20,6 +20,8 @@ signals:
 public slots:
     void mySlot_1();
     void mySlot_2(int data);
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

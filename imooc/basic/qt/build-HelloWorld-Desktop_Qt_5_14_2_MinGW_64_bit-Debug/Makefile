@@ -223,6 +223,7 @@ Makefile: ../HelloWorld/HelloWorld.pro D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mks
 		D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/qt_config.prf \
 		D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/win32-g++/qmake.conf \
 		D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/exclusive_builds.prf \
 		D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/toolchain.prf \
 		D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/default_pre.prf \
@@ -251,7 +252,6 @@ Makefile: ../HelloWorld/HelloWorld.pro D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mks
 		D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Gui.prl \
 		D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl \
 		D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl \
-		.qmake.stash \
 		D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\HelloWorld\HelloWorld.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/spec_pre.prf:
@@ -407,6 +407,7 @@ D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/qt_functions.prf:
 D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/qt_config.prf:
 D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/win32-g++/qmake.conf:
 D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/exclusive_builds.prf:
 D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/toolchain.prf:
 D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/default_pre.prf:
@@ -435,7 +436,6 @@ D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Widgets.prl:
 D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Gui.prl:
 D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl:
 D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl:
-.qmake.stash:
 D:/soft/Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\HelloWorld\HelloWorld.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

@@ -17,10 +17,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    signalslot.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    signalslot.h
 
 FORMS += \
     mainwindow.ui
