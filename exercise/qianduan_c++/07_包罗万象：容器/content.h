@@ -1,5 +1,4 @@
-#ifndef QIANDUAN_C___CONTENT_H
-#define QIANDUAN_C___CONTENT_H
+#pragma once
 
 #include <iostream>
 #include <vector>
@@ -10,4 +9,3 @@ namespace content
 	void main();
 }
 
-#endif //QIANDUAN_C___CONTENT_H

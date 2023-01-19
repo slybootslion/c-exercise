@@ -76,9 +76,123 @@ void q5_4() {
 	}
 }
 
+/*
+5.修改程序addemup.c（程序清单5.13） ， 你可以认为addemup.c是计算20天里赚多少钱的
+ 程序（假设第1天赚$1、 第2天赚$2、 第3天赚$3， 以此类推） 。 修改程序，使其可以与用户
+ 交互， 根据用户输入的数进行计算（即，用读入的一个变量来代替20） 。
+ * */
+
+void q5_5() {
+	printf("enter the number of earning days you want to calculate: ");
+	int days;
+	scanf("%d", &days);
+	if (days <= 0) return;
+//	int count = 0;
+//	for (int i = 0; i < days; ++i)
+//		count += (i + 1);
+	// 也可以用数学公式计算
+	int count = days * (days + 1) / 2;
+	printf("earn $%d in %d days\n", count, days);
+}
+
+/*
+6.修改编程练习5的程序， 使其能计算整数的平方和（可以认为第1天赚$1、 第2天
+ 赚$4、 第3天赚$9， 以此类推， 这看起来很不错） 。 C没有平方函数， 但是可
+ 以用n * n来表示n的平方。
+ * */
+void q5_6() {
+	printf("enter the number of earning days you want to calculate: ");
+	int days;
+	scanf("%d", &days);
+	if (days <= 0) return;
+	int count = 0;
+	for (int i = 0; i <= days; ++i)
+		count += i * i;
+	printf("earn $%d in %d days\n", count, days);
+}
+
+/*
+7.编写一个程序，提示用户输入一个double类型的数，并打印该数的立方值。
+ 自己设计一个函数计算并打印立方值。main()函数要把用户输入的值传递给该函数。
+ * */
+double cube_func(double num) {
+	return num * num * num;
+}
+
+void q5_7() {
+	double num;
+	printf("Enter a value of type double: ");
+	scanf("%lf", &num);
+	printf("enter value's cube is: %lf", cube_func(num));
+}
+
+/*
+8.编写一个程序，显示求模运算的结果。把用户输入的第1个整数作为求模运算符的第2个运算对象，
+ 该数在运算过程中保持不变。用户后面输入的数是第1个运算对象。当用户输入一个非正值时，程序结
+ 束。其输出示例如下：
+This program computes moduli.
+Enter an integer to serve as the second operand: 256
+Now enter the first operand: 438
+438 % 256 is 182
+Enter next number for first operand (<= 0 to quit): 1234567
+1234567 % 256 is 135
+Enter next number for first operand (<= 0 to quit): 0
+Done
+ * */
+void q5_8() {
+	int foperand, soperand, modulus;
+	printf("This program computes moduli.\n");
+	printf("Enter an integer to serve as the second operand: ");
+	scanf("%d", &soperand);
+	printf("Now enter the first operand: ");
+	scanf("%d", &foperand);
+	while (foperand > 0) {
+		modulus = foperand % soperand;
+		printf("%d %% %d is %d\n", foperand, soperand, modulus);
+		printf("Enter next number for first operand (<= 0 to quit):");
+		scanf("%d", &foperand);
+	}
+	printf("Done\n");
+}
+
+/*
+9.编写一个程序，要求用户输入一个华氏温度。程序应读取double类型的值作为温度值，并把该值作为参数传递
+ 给一个用户自定义的函数Temperatures()。该函数计算摄氏温度和开氏温度，并以小数点后面两位数字的精度
+ 显示3种温度。要使用不同的温标来表示这3个温度值。下面是华氏温度转摄氏温度的公式：
+摄氏温度 = 5.0 / 9.0 * (华氏温度 - 32.0)
+开氏温标常用于科学研究，0表示绝对零，代表最低的温度。下面是摄氏温度转开氏温度的公式：
+开氏温度 = 摄氏温度 + 273.16
+Temperatures()函数中用const创建温度转换中使用的变量。在main()函数中使用一个循环让用户重复输入温
+ 度，当用户输入 q 或其他非数字时，循环结束。scanf()函数返回读取数据的数量，所以如果读取数字则返回1，
+ 如果读取q则不返回1。可以使用==运算符将scanf()的返回值和1作比较，测试两值是否相等。
+ * */
+
+void Temperatures(double fahrenheit) {
+	const double a = 5.0, b = 9.0, c = 32.0, d = 273.16;
+	const double celsius = a / b * (fahrenheit - c);
+	const double kelvin = celsius + d;
+	printf("fahrenheit is: %.2lf, celsius is: %.2lf, kelvin is: %.2lf.\n", fahrenheit, celsius, kelvin);
+}
+
+void q5_9() {
+	double fahrenheit;
+	printf("enter fahrenheit: ");
+	while (scanf("%lf", &fahrenheit) == 1) {
+		Temperatures(fahrenheit);
+		printf("enter other fahrenheit or take 'q' to leave.\n");
+	}
+	printf("Done.");
+}
+
 void chapter05() {
 //	q5_1();
 //	q5_2();
 //	q5_3();
-	q5_4();
+//	q5_4();
+//	q5_5();
+//	q5_6();
+//	q5_7();
+//	q5_8();
+	q5_9();
+
 }
