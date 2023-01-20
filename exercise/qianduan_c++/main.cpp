@@ -5,7 +5,8 @@
 #include "./05_头等公民：函数/Function_ex.h"
 #include "./06_兵器库：常用的工具/tools.h"
 #include "./07_包罗万象：容器/content.h"
-#include "./08_ 并行处理：线程/thread.h"
+#include "./08_并行处理：线程/thread.h"
+#include "./09_使用标准库处理文件/filesys.h"
 
 int main() {
 //	Message1::main();
@@ -18,6 +19,8 @@ int main() {
 //	FunctionEx::main();
 //	Tools::main();
 //	content::main();
-	thread_ex::main();
+//	thread_ex::main();
+	filesys::main();
+
 	return 0;
 }
