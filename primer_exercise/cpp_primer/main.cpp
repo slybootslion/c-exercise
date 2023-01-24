@@ -1,6 +1,8 @@
-#include <iostream>
+#include "chapter01/chapter01.h"
 
 int main() {
-	std::cout << "Hello, World!" << std::endl;
-	return -1;
+	chapter01::main();
+
+
+	return 0;
 }

@@ -14,6 +14,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    bool eventFilter(QObject *watched, QEvent *event);
 signals:
     void mySignal_1();
     void mySignal_2(int data);

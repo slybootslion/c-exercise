@@ -18,10 +18,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    pushbutton.cpp \
     signalslot.cpp
 
 HEADERS += \
     mainwindow.h \
+    pushbutton.h \
     signalslot.h
 
 FORMS += \

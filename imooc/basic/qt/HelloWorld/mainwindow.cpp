@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->pushButton->setText("hello btn");
+    ui->pushButton->installEventFilter(this);
 
     connect(this, SIGNAL(mySignal_1()), this, SLOT(mySlot_1()));
     connect(this, SIGNAL(mySignal_2(int)), this, SLOT(mySlot_2(int)));
@@ -26,6 +27,17 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+bool MainWindow::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == ui->pushButton) {
+        if (event->type() == QEvent::MouseButtonPress) {
+            qDebug() << "mouse button press event filter";
+            return true;
+        }
+    }
+    return QMainWindow::eventFilter(watched, event);
 }
 
 void MainWindow::mySlot_1()
