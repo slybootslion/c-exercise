@@ -1,4 +1,6 @@
+#include <map>
 #include "chapter01.h"
+#include "Sales_item.h"
 
 namespace chapter01
 {
@@ -55,10 +57,53 @@ namespace chapter01
 		cout << "sum is: " << sum << endl;
 	}
 
+	/*
+	 练习1.20：在网站http://www.informit.com/title/0321714113上，第一章的代码目录中包含了头文件Sales_item.h。
+	 将它拷贝到你自己的工作目录中。用它编写一个程序，读取一组书籍销售记录，将每条记录打印到标准输出上。
+	 * */
+	void q1_20() {
+		const static int MAX_LOOP_TIMES = 2;
+		Sales_item item[MAX_LOOP_TIMES];
+		for (int i = 0; i < MAX_LOOP_TIMES; ++i)
+			cin >> item[i];
+		for (int i = 0; i < MAX_LOOP_TIMES; ++i)
+			cout << item[i] << endl;
+	}
+
+	/*
+	练习 1.23：编写程序，读取多条销售记录，并统计每个ISBN(每本书)有几条销售记录。
+	 * */
+	void q1_23() {
+		map<string, int> count_map;
+		int is_loop = 0;
+		do {
+			cout << "Enter 1 to enter item info or enter 0 print and quit:";
+			cin >> is_loop;
+			if (is_loop != 0) {
+				Sales_item item;
+				cout << "Enter the book info: (tip:isbn sale_count sale_price):";
+				cin >> item;
+
+				auto map_it = count_map.begin();
+				for (map_it; map_it != count_map.end(); ++map_it) {
+					if (map_it->first == item.isbn()) {
+						map_it->second++;
+						break;
+					}
+				}
+
+				if (map_it == count_map.end())
+					count_map[item.isbn()] = 1;
+			}
+		} while (is_loop != 0);
+	}
+
 	void main() {
 //		q1_9();
 //		q1_10();
 //		q1_11();
 //		q1_16();
+//		q1_20();
+		q1_23();
 	}
 }
