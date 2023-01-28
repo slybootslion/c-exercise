@@ -55,19 +55,10 @@ namespace chapter01
 		cout << "sum is: " << sum << endl;
 	}
 
-	/*
-	 1.5 类简介
-	 * */
-	void ex1_5() {
-
-	}
-
-
 	void main() {
 //		q1_9();
 //		q1_10();
 //		q1_11();
 //		q1_16();
-		ex1_5();
 	}
 }
