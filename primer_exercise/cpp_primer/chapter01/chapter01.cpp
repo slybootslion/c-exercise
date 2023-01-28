@@ -45,11 +45,29 @@ namespace chapter01
 		cout << endl;
 	}
 
+	/*
+	 练习1.16：编写程序，从cin读取一组数，输出其和。
+	 * */
+	void q1_16() {
+		int sum = 0, value = 0;
+		while (cin >> value)
+			sum += value;
+		cout << "sum is: " << sum << endl;
+	}
+
+	/*
+	 1.5 类简介
+	 * */
+	void ex1_5() {
+
+	}
+
 
 	void main() {
 //		q1_9();
 //		q1_10();
-		q1_11();
-		
+//		q1_11();
+//		q1_16();
+		ex1_5();
 	}
 }
