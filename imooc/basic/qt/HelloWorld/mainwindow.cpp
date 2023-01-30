@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include "signalslot.h"
+#include <QThread>
+#include <QTimer>
+#include <QDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -56,3 +59,23 @@ void MainWindow::on_pushButton_clicked()
     emit mySignal_1();
 }
 
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QEventLoop loop;
+    QTimer::singleShot(3 * 1000, &loop, &QEventLoop::quit);
+    qDebug() << "Start event loop";
+    loop.exec();
+    qDebug() << "End event loop";
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    QDialog d;
+    d.show();
+    QEventLoop loop;
+    connect(&d, SIGNAL(finished(int)), &loop, SLOT(quit()));
+//    connect(&d, &QDialog::finished, &loop, &QEventLoop::quit);
+    loop.exec();
+    qDebug() << "event loop quit ok";
+}
