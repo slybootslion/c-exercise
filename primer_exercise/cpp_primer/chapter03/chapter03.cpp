@@ -505,6 +505,145 @@ namespace chapter03
 		cout << res << endl;
 	}
 
+	/*
+	练习 3.37:下面的程序是何含义，程序的输出结果是什么?
+		const char ca[] = { 'h', 'e', 'l', 'l', 'o' };
+		const char* cp = ca;
+		while (*cp) {
+			cout << *cp << endl;
+			++cp;
+			cout << *cp << endl;
+		}
+
+	 遍历ca字符串数组，并打印数组每个元素；
+	 但打印结果不确定，因为判断条件*cp是以\0为结束，但ca并没有包含\0字符，++cp会一直进行，直到内存中存放的'\0'为止。
+	*/
+
+	/*
+	练习 3.38:在本节中我们提到，将两个指针相加不但是非法的，而且也没什么意义。请问为什么两个指针相加没什么意义?
+
+	两个指针相加的结果是一个新的地址，但显然的是，这个地址是否可读、是否可写是不确定的，
+	所以说两个指针相加没有什么意义
+	 * */
+
+	/*
+	练习 3.39:编写一段程序，比较两个 string 对象。再编写一段程序，比较两个C风格字符串的内容。
+	 * */
+	string string_compare(string& a, string& b) {
+		return a == b ? "true" : "false";
+	}
+
+	string cstring_compare(char* a, char* b) {
+		return strcmp(a, b) == 0 ? "true" : "false";
+	}
+
+	void q3_39() {
+		string s1 = "abc", s2 = "abd", s3 = "abc";
+		cout << string_compare(s1, s2) << endl;
+		cout << string_compare(s1, s3) << endl;
+
+		char ch1[] = "abc", ch2[] = "abd", ch3[] = "abc";
+		cout << cstring_compare(ch1, ch2) << endl;
+		cout << cstring_compare(ch1, ch3) << endl;
+	}
+
+	/*
+	练习 3.40:编写一段程序，定义两个字符数组并用字符串字面值初始化它们;
+	 接着再定义一个字符数组存放前两个数组连接后的结果。
+	 使用 strcpy和 strcat 把前两个数组的内容拷贝到第三个数组中。
+	 * */
+	void q3_40() {
+		const char c1[] = "abc", c2[] = "def";
+		auto l1 = strlen(c1), l2 = strlen(c2);
+		char c3[l1 + l2 + 1];
+		strcpy(c3, c1);
+		strcat(c3, c2);
+		cout << c3 << endl;
+	}
+
+	/*
+	 练习3.41:编写一段程序，用整型数组初始化一个 vector 对象。
+	 练习3.42:编写一段程序，将含有整数元素的 vector 对象拷贝给一个整型数组。
+
+	 这两个我实在是不想写，知道有这么回事就完了，不太可能用得上，真要用的时候去查一下吧。
+	 * */
+
+	/*
+	 练习 3.43:编写3个不同版本的程序，令其均能输出ia的元素。版本1使用范围for语句管理迭代过程；版本2和版本3都使用普通的for语句，
+	 其中版本2要求用下标运算符，版本 3 要求用指针。
+	 此外，在所有3个版本的程序中都要直接写出数据类型，而不能使用类型别名、auto关键字或decltype 关键字。
+	 * */
+	void q3_43() {
+		int ia[3][4] = {
+				{ 0, 1, 2,  3 },
+				{ 4, 5, 6,  7 },
+				{ 8, 9, 10, 11 }
+		};
+
+		for (const int (& p)[4]: ia) {
+			for (int q: p)
+				cout << q << ", ";
+			cout << endl;
+		}
+		print_line();
+
+		const int row = sizeof(ia) / sizeof(ia[0]), col = sizeof(ia[0]) / sizeof(ia[0][0]);
+		for (int i = 0; i < row; ++i) {
+			for (int j = 0; j < col; ++j) {
+				cout << ia[i][j] << ", ";
+			}
+			cout << endl;
+		}
+		print_line();
+
+		for (int (* p)[col] = ia; p != ia + row; ++p) {
+			for (int* q = *p; q != *p + col; ++q)
+				cout << *q << ", ";
+			cout << endl;
+		}
+	}
+
+	/*
+	 练习3.44:改写上一个练习中的程序，使用类型别名来代替循环控制变量的类型
+	 * */
+	void q3_44() {
+		int ia[3][4] = {
+				{ 0, 1, 2,  3 },
+				{ 4, 5, 6,  7 },
+				{ 8, 9, 10, 11 }
+		};
+		using int_arr = int[4];
+		for (int_arr& p: ia) {
+			for (int q: p)
+				cout << q << ", ";
+			cout << endl;
+		}
+	}
+
+	/*
+	 练习 3.45:再一次改写程序，这次使用 auto 关键字。
+	 * */
+	void q3_45() {
+		int ia[3][4] = {
+				{ 0, 1, 2,  3 },
+				{ 4, 5, 6,  7 },
+				{ 8, 9, 10, 11 }
+		};
+		for (const auto& p: ia) {
+			for (auto q: p)
+				cout << q << ", ";
+			cout << endl;
+		}
+		print_line();
+
+		const int row = sizeof(ia) / sizeof(ia[0]), col = sizeof(ia[0]) / sizeof(ia[0][0]);
+		for (auto p = ia; p != ia + row; ++p) {
+			for (auto q = *p; q != *p + col; ++q)
+				cout << *q << ", ";
+			cout << endl;
+		}
+	}
+
 	void main() {
 //		q3_2();
 //		q3_4();
@@ -524,7 +663,12 @@ namespace chapter03
 //		q3_31();
 //		q3_32();
 //		q3_35();
-		q3_36();
+//		q3_36();
+//		q3_39();
+//		q3_40();
+//		q3_43();
+//		q3_44();
+		q3_45();
 
 	}
 }

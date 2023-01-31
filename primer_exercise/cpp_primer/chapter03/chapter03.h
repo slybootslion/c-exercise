@@ -2,6 +2,7 @@
 #define CPP_PRIMER_CHAPTER03_H
 
 #include "../utils/head.h"
+#include <cstring>
 
 namespace chapter03
 {
