@@ -14,13 +14,19 @@
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -30,7 +36,7 @@ class Ui_CloudMusicWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *widget;
+    QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout;
     QGraphicsView *graphicsView;
     QSpacerItem *verticalSpacer_9;
@@ -59,6 +65,20 @@ public:
     QSlider *horizontalSlider;
     QSpacerItem *horizontalSpacer_2;
     QLabel *label_2;
+    QStackedWidget *stackedWidget;
+    QWidget *page;
+    QVBoxLayout *verticalLayout_5;
+    QLineEdit *lineEdit;
+    QTabWidget *tabWidget;
+    QWidget *tab;
+    QVBoxLayout *verticalLayout_2;
+    QTableWidget *tableWidget;
+    QWidget *tab_2;
+    QVBoxLayout *verticalLayout_3;
+    QTableWidget *tableWidget_2;
+    QWidget *page_2;
+    QVBoxLayout *verticalLayout_4;
+    QTextEdit *textEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -66,7 +86,7 @@ public:
     {
         if (CloudMusicWindow->objectName().isEmpty())
             CloudMusicWindow->setObjectName(QString::fromUtf8("CloudMusicWindow"));
-        CloudMusicWindow->resize(639, 600);
+        CloudMusicWindow->resize(609, 522);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Ignored);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -77,13 +97,11 @@ public:
         centralwidget->setStyleSheet(QString::fromUtf8("QWidget#centralwidget{\n"
 "border-image: url(:/images/background.png);\n"
 "}"));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(20, 10, 281, 521));
-        verticalLayout = new QVBoxLayout(widget);
+        horizontalLayout_2 = new QHBoxLayout(centralwidget);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        graphicsView = new QGraphicsView(widget);
+        graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
 
         verticalLayout->addWidget(graphicsView);
@@ -106,7 +124,7 @@ public:
 
         gridLayout->addItem(verticalSpacer_3, 0, 2, 1, 1);
 
-        pushButton_5 = new QPushButton(widget);
+        pushButton_5 = new QPushButton(centralwidget);
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
         QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy1.setHorizontalStretch(0);
@@ -125,7 +143,7 @@ public:
 
         gridLayout->addItem(verticalSpacer_5, 0, 6, 1, 1);
 
-        pushButton_8 = new QPushButton(widget);
+        pushButton_8 = new QPushButton(centralwidget);
         pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
         sizePolicy1.setHeightForWidth(pushButton_8->sizePolicy().hasHeightForWidth());
         pushButton_8->setSizePolicy(sizePolicy1);
@@ -149,7 +167,7 @@ public:
 
         gridLayout->addItem(verticalSpacer_8, 2, 8, 1, 1);
 
-        pushButton_6 = new QPushButton(widget);
+        pushButton_6 = new QPushButton(centralwidget);
         pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
         sizePolicy1.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
         pushButton_6->setSizePolicy(sizePolicy1);
@@ -157,7 +175,7 @@ public:
 
         gridLayout->addWidget(pushButton_6, 1, 6, 1, 1);
 
-        pushButton_7 = new QPushButton(widget);
+        pushButton_7 = new QPushButton(centralwidget);
         pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
         sizePolicy1.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
         pushButton_7->setSizePolicy(sizePolicy1);
@@ -165,7 +183,7 @@ public:
 
         gridLayout->addWidget(pushButton_7, 1, 8, 1, 1);
 
-        pushButton = new QPushButton(widget);
+        pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
         pushButton->setSizePolicy(sizePolicy1);
@@ -196,7 +214,7 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        label = new QLabel(widget);
+        label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
@@ -206,7 +224,7 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        horizontalSlider = new QSlider(widget);
+        horizontalSlider = new QSlider(centralwidget);
         horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
         horizontalSlider->setOrientation(Qt::Horizontal);
 
@@ -216,7 +234,7 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer_2);
 
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
@@ -235,16 +253,84 @@ public:
         verticalLayout->setStretch(2, 2);
         verticalLayout->setStretch(3, 1);
         verticalLayout->setStretch(4, 1);
+
+        horizontalLayout_2->addLayout(verticalLayout);
+
+        stackedWidget = new QStackedWidget(centralwidget);
+        stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
+        page = new QWidget();
+        page->setObjectName(QString::fromUtf8("page"));
+        verticalLayout_5 = new QVBoxLayout(page);
+        verticalLayout_5->setSpacing(10);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
+        lineEdit = new QLineEdit(page);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        sizePolicy1.setHeightForWidth(lineEdit->sizePolicy().hasHeightForWidth());
+        lineEdit->setSizePolicy(sizePolicy1);
+
+        verticalLayout_5->addWidget(lineEdit);
+
+        tabWidget = new QTabWidget(page);
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        verticalLayout_2 = new QVBoxLayout(tab);
+        verticalLayout_2->setSpacing(0);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        tableWidget = new QTableWidget(tab);
+        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
+
+        verticalLayout_2->addWidget(tableWidget);
+
+        tabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        verticalLayout_3 = new QVBoxLayout(tab_2);
+        verticalLayout_3->setSpacing(0);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        tableWidget_2 = new QTableWidget(tab_2);
+        tableWidget_2->setObjectName(QString::fromUtf8("tableWidget_2"));
+
+        verticalLayout_3->addWidget(tableWidget_2);
+
+        tabWidget->addTab(tab_2, QString());
+
+        verticalLayout_5->addWidget(tabWidget);
+
+        verticalLayout_5->setStretch(0, 1);
+        verticalLayout_5->setStretch(1, 16);
+        stackedWidget->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName(QString::fromUtf8("page_2"));
+        verticalLayout_4 = new QVBoxLayout(page_2);
+        verticalLayout_4->setSpacing(0);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
+        textEdit = new QTextEdit(page_2);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+
+        verticalLayout_4->addWidget(textEdit);
+
+        stackedWidget->addWidget(page_2);
+
+        horizontalLayout_2->addWidget(stackedWidget);
+
         CloudMusicWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(CloudMusicWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 639, 23));
+        menubar->setGeometry(QRect(0, 0, 609, 23));
         CloudMusicWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(CloudMusicWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         CloudMusicWindow->setStatusBar(statusbar);
 
         retranslateUi(CloudMusicWindow);
+
+        tabWidget->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(CloudMusicWindow);
     } // setupUi
@@ -259,6 +345,8 @@ public:
         pushButton->setText(QString());
         label->setText(QCoreApplication::translate("CloudMusicWindow", "00:00", nullptr));
         label_2->setText(QCoreApplication::translate("CloudMusicWindow", "00:00", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("CloudMusicWindow", "\346\234\254\345\234\260\346\255\214\346\233\262", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("CloudMusicWindow", "\347\275\221\347\273\234\346\255\214\346\233\262", nullptr));
     } // retranslateUi
 
 };
