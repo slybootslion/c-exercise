@@ -327,6 +327,184 @@ namespace chapter03
 		cout << endl;
 	}
 
+	/*
+	练习 3.24:请使用选代器重做3.3.3节(第94页)的最后一个练习。
+	 * */
+	void q3_24() {
+		int a;
+		vector<int> res;
+		while (cin >> a)
+			res.push_back(a);
+		// 相邻元素和
+		auto it = res.begin() + 1;
+		for (; it != res.end(); ++it)
+			cout << *it + *(it - 1) << ", ";
+		cout << endl;
+		// 首尾相加
+		auto it_b = res.begin(), it_e = res.end() - 1; // it_m = it_b + (it_e - it_b) / 2
+		while (it_b <= it_e) {
+			if (it_b == it_e) cout << *it_b << " ";
+			else cout << *it_b + *it_e << ", ";
+			it_b++;
+			it_e--;
+		}
+		cout << endl;
+	}
+
+	/*
+	练习3.25:3.3.3 节(第93 页)划分分数段的程序是使用下标运算符实现的，请利用选代器改写该程序并实现完全相同的功能。
+	 * */
+	void q3_25() {
+		vector<unsigned> scores(11, 0);
+		unsigned grade;
+		while (cin >> grade) {
+			if (grade <= 100) {
+				auto scores_it = scores.begin();
+				++*(scores_it + grade / 10);
+			}
+		}
+		for (auto it = scores.begin(); it < scores.end(); ++it)
+			cout << *it << ", ";
+		cout << endl;
+	}
+
+	/*
+		练习 3.26:在100页的二分搜索程序中，为什么用的是mid = beg + (end - beg) / 2
+		而非mid = (beg + end) /2;?
+
+	 	迭代器不支持两个迭代器相加，但支持两个迭代器相减，所以可以选用mid=beg+(end-beg)/2，但不能选用mid=(beg+end)/2
+	 * */
+
+	/*
+	 练习 3.27:假设 txt_size 是一个无参数的函数，它的返回值是int。请回答下列哪个定义是非法的?为什么?
+		unsigned buf_size = 1024;
+		(a)int ia[buf_size]; // 错误，不是常量
+		(c)int ia[txt_size()]; // 错误，返回值不是const常量，返回值是constexpr时正确（constexpr int txt_size() {return 5;}）
+		(b)int ia[4*7-14]; // 正确
+		(d)char st[11] = "fundamental"; // 错误，没有留下\0的位置，这个数组的维度应该为12
+	 * */
+
+	/*
+	练习 3.28:下列数组中元素的值是什么?
+		string sa[10]; // 10个元素，空字符串
+		int ia[10]; // 10个元素，0
+		int main() {
+			string sa2[10]; // 10个元素，空字符串
+			int ia2[10]; // 10个元素，undefined（未定义）
+		}
+	 * */
+
+	/*
+	 练习 3.29:相比于vector 来说，数组有哪些缺点，请列举一些。
+	 	1)数组的维度在编译时必须是已知的，从而大小不可变更，缺乏灵活性
+	 	2)标准命名空间对vector的支持明显好于对数组的支持
+	 * */
+
+	/*
+	 练习3.30:指出下面代码中的索引错误
+		constexpr size_t array_size = 10;
+		int ia[array_size];
+		for (size_t ix = 1; ix <= array_size; ++ix)
+			ia[ix] = ix;
+
+	 当ix=array_size的时候，数组取值将越界。
+	 * */
+
+	/*
+	 练习 3.31:编写一段程序，定义一个含有 10个int 的数组，令每个元素的值就是其下标值。
+	 * */
+	void q3_31() {
+		int arr[10];
+		for (int i = 0; i < 10; i++)
+			arr[i] = i;
+		for (int a: arr)
+			cout << a << ", ";
+		cout << endl;
+	}
+
+	/*
+	 练习 3.32:将上一题刚刚创建的数组拷贝给另外一个数组。
+	 利用vector重写程序，实现类似的功能。
+	 * */
+	void q3_32() {
+		int arr[10], arr2[10];
+		for (int i = 0; i < 10; i++)
+			arr[i] = i;
+		for (int i = 0; i < 10; i++)
+			arr2[i] = arr[i];
+		for (int a: arr2)
+			cout << a << ", ";
+		cout << endl;
+
+		vector<int> v;
+		for (int i = 0; i < 10; i++)
+			v.push_back(i);
+		vector<int> v2;
+		for (int i = 0; i < 10; i++)
+			v2.push_back(v[i]);
+		for (auto a: v2)
+			cout << a << ", ";
+		cout << endl;
+	}
+
+	/*
+	 练习 3.33:对于104 页的程序来说，如果不初始化 scores 将发生什么?
+
+	 函数里面的内置类型是不会默认初始化的，所以数组scores里的元素值是未定义，从而自加操作的值是不确定的
+	 * */
+
+	/*
+	 练习 3.34: 假定p1和p2指向同一个数组中的元素，则下面程序的功能是什么?什么情况下该程序是非法的?
+		p1 += p2 - p1;
+	 将p1的值更改为p2，即p1 = p2；
+	 当p1和p2都是合法的指向同一个数组元素的指针，该表达式就是合法的。
+	 如果其中有一个指针是非法的或者指向不同的数组元素，该表达式就是非法的。
+	 * */
+
+	/*
+	 练习 3.35: 编写一段程序，利用指针将数组中的元素置为0。
+	 * */
+	void q3_35() {
+		int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		int* p = arr;
+		auto e = end(arr);
+		while (p != e) {
+			*p = 0;
+			p++;
+		}
+		for (auto a: arr)
+			cout << a << ", ";
+		cout << endl;
+	}
+
+	/*
+	 练习3.36: 编写一段程序，比较两个数组是否相等。再写一段程序，比较两个vector对象是否相等。
+	 * */
+	template<typename T>
+	string is_2_array_same(T* arr1, T* arr2, int len, int len2) {
+		if (len != len2)
+			return "false";
+		for (int i = 0; i < len; i++) {
+			if (arr1[i] != arr2[i])
+				return "false";
+		}
+		return "true";
+	}
+
+	void q3_36() {
+		const int arr1[5] = { 1, 2, 3, 4, 5 };
+		const int arr2[5] = { 1, 2, 2, 4, 5 };
+		const int arr3[5] = { 1, 2, 3, 4, 5 };
+		cout << is_2_array_same(arr1, arr2, sizeof(arr1) / sizeof(arr1[0]), sizeof(arr2) / sizeof(arr2[0])) << endl;
+		cout << is_2_array_same(arr1, arr3, sizeof(arr1) / sizeof(arr1[0]), sizeof(arr3) / sizeof(arr3[0])) << endl;
+
+		vector<int> v1{ 1, 2, 3 }, v2{ 1, 2, 2 }, v3{ 1, 2, 3 };
+		string res = v1 == v2 ? "true" : "false";
+		cout << res << endl;
+		res = v1 == v3 ? "true" : "false";
+		cout << res << endl;
+	}
+
 	void main() {
 //		q3_2();
 //		q3_4();
@@ -340,7 +518,13 @@ namespace chapter03
 //		q3_20();
 //		q3_21();
 //		q3_22();
-		q2_23();
+//		q2_23();
+//		q3_24();
+//		q3_25();
+//		q3_31();
+//		q3_32();
+//		q3_35();
+		q3_36();
 
 	}
 }
