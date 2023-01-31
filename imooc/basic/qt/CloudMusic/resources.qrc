@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/">
+        <file>CloudMusic.pro</file>
+        <file>images/background.png</file>
+        <file>images/collect-icon.png</file>
+        <file>images/collect-text.png</file>
+        <file>images/cycle-play.png</file>
+        <file>images/default.png</file>
+        <file>images/default-music-list.png</file>
+        <file>images/disk.png</file>
+        <file>images/disk-background.png</file>
+        <file>images/download.png</file>
+        <file>images/download-ico.png</file>
+        <file>images/listen-icon.png</file>
+        <file>images/listen-text.png</file>
+        <file>images/magnetNeedle.png</file>
+        <file>images/music-list.png</file>
+        <file>images/pause.png</file>
+        <file>images/play.png</file>
+        <file>images/play-next.png</file>
+        <file>images/play-next-press.png</file>
+        <file>images/play-pri.png</file>
+        <file>images/play-pri-press.png</file>
+        <file>images/play-text.png</file>
+        <file>images/seq-play.png</file>
+        <file>images/slider.png</file>
+        <file>images/slider-handle.png</file>
+        <file>images/voice.png</file>
+        <file>images/voice-icon.png</file>
+    </qresource>
+</RCC>
