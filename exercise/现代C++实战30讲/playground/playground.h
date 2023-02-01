@@ -1,0 +1,11 @@
+#ifndef XIANDAICSHIZHAN30JIANG_PLAYGROUND_H
+#define XIANDAICSHIZHAN30JIANG_PLAYGROUND_H
+
+#include "../head.h"
+
+namespace playground
+{
+	void main();
+}
+
+#endif //XIANDAICSHIZHAN30JIANG_PLAYGROUND_H

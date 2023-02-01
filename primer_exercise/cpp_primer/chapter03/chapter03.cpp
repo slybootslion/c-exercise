@@ -481,22 +481,24 @@ namespace chapter03
 	 练习3.36: 编写一段程序，比较两个数组是否相等。再写一段程序，比较两个vector对象是否相等。
 	 * */
 	template<typename T>
-	string is_2_array_same(T* arr1, T* arr2, int len, int len2) {
+	bool is_2_array_same(T* arr1, T* arr2, int len, int len2) {
 		if (len != len2)
 			return "false";
 		for (int i = 0; i < len; i++) {
 			if (arr1[i] != arr2[i])
-				return "false";
+				return false;
 		}
-		return "true";
+		return true;
 	}
 
 	void q3_36() {
 		const int arr1[5] = { 1, 2, 3, 4, 5 };
 		const int arr2[5] = { 1, 2, 2, 4, 5 };
 		const int arr3[5] = { 1, 2, 3, 4, 5 };
-		cout << is_2_array_same(arr1, arr2, sizeof(arr1) / sizeof(arr1[0]), sizeof(arr2) / sizeof(arr2[0])) << endl;
-		cout << is_2_array_same(arr1, arr3, sizeof(arr1) / sizeof(arr1[0]), sizeof(arr3) / sizeof(arr3[0])) << endl;
+		string r = is_2_array_same(arr1, arr2, sizeof(arr1) / sizeof(arr1[0]), sizeof(arr2) / sizeof(arr2[0]))
+				   ? "true" : "false";
+		cout << r << endl;
+		cout << r << endl;
 
 		vector<int> v1{ 1, 2, 3 }, v2{ 1, 2, 2 }, v3{ 1, 2, 3 };
 		string res = v1 == v2 ? "true" : "false";
@@ -529,22 +531,26 @@ namespace chapter03
 	/*
 	练习 3.39:编写一段程序，比较两个 string 对象。再编写一段程序，比较两个C风格字符串的内容。
 	 * */
-	string string_compare(string& a, string& b) {
-		return a == b ? "true" : "false";
+	bool string_compare(string& a, string& b) {
+		return a == b;
 	}
 
-	string cstring_compare(char* a, char* b) {
-		return strcmp(a, b) == 0 ? "true" : "false";
+	bool cstring_compare(char* a, char* b) {
+		return strcmp(a, b) == 0;
 	}
 
 	void q3_39() {
 		string s1 = "abc", s2 = "abd", s3 = "abc";
-		cout << string_compare(s1, s2) << endl;
-		cout << string_compare(s1, s3) << endl;
+		string r = string_compare(s1, s2) ? "true" : "false";
+		cout << r << endl;
+		r = string_compare(s1, s3) ? "true" : "false";
+		cout << r << endl;
 
 		char ch1[] = "abc", ch2[] = "abd", ch3[] = "abc";
-		cout << cstring_compare(ch1, ch2) << endl;
-		cout << cstring_compare(ch1, ch3) << endl;
+		r = cstring_compare(ch1, ch2) ? "true" : "false";
+		cout << r << endl;
+		r = cstring_compare(ch1, ch3) ? "true" : "false";
+		cout << r << endl;
 	}
 
 	/*
