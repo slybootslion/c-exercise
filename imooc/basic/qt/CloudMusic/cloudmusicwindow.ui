@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>609</width>
-    <height>522</height>
+    <width>549</width>
+    <height>454</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -15,6 +15,12 @@
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>549</width>
+    <height>0</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>CloudMusicWindow</string>
@@ -29,7 +35,11 @@ border-image: url(:/images/background.png);
     <item>
      <layout class="QVBoxLayout" name="verticalLayout" stretch="10,1,2,1,1">
       <item>
-       <widget class="QGraphicsView" name="graphicsView"/>
+       <widget class="QGraphicsView" name="graphicsView">
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;</string>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="verticalSpacer_9">
@@ -330,6 +340,39 @@ border-image: url(:/images/background.png);
         </item>
         <item>
          <widget class="QSlider" name="horizontalSlider">
+          <property name="styleSheet">
+           <string notr="true">QSlider
+{
+    border-color: #bcbcbc;
+}
+
+QSlider::groove:horizontal
+{                                
+     border: 1px solid #999999;                             
+     height: 3px;                                           
+     margin: 0px 0;                                         
+     left: 5px; right: 5px; 
+ }
+ 
+QSlider::handle:horizontal
+{                               
+     border: 0px ;                           
+     border-image: url(:/images/slider-handle.png);
+     width: 15px;                                           
+     margin: -7px -7px -7px -6px;                  
+} 
+
+QSlider::add-page:horizontal
+{
+    background:white;
+}
+
+QSlider::sub-page:horizontal
+{                               
+     background:red;                
+}
+</string>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -389,12 +432,63 @@ border-image: url(:/images/background.png);
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit 
+{
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 0 8px;
+    background: yellow;
+    selection-background-color: darkgray;
+ }
+</string>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QTabWidget" name="tabWidget">
+          <property name="styleSheet">
+           <string notr="true">/* The tab widget frame */
+QTabWidget::pane 
+{ 
+    border-top: 2px solid #55aaff;
+    position: absolute;
+    top: -0.5em;
+ }
+
+ QTabWidget::tab-bar
+ {
+     alignment: center;
+ }
+
+  /* Style the tab using the tab sub-control. Note that it reads
+   QTabBar_not_ QTabWidget */
+  QTabBar::tab
+  {    
+      background-color: rgb(85, 170, 255);
+      border: 2px solid #00ff7f;
+      border-bottom-color: #C2C7CB; /* same as the pane color */
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      min-width: 8ex;
+      padding: 2px;
+  }
+
+  QTabBar::tab:hover
+  {  
+      background-color: rgb(255, 0, 255);
+  }
+
+  QTabBar::tab:selected
+  {            
+     background-color: rgb(255, 0, 127);
+     /* same as pane color */
+     border-bottom-color: rgb(85, 170, 255);
+  }
+</string>
+          </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab">
            <attribute name="title">
@@ -417,7 +511,47 @@ border-image: url(:/images/background.png);
              <number>0</number>
             </property>
             <item>
-             <widget class="QTableWidget" name="tableWidget"/>
+             <widget class="QTableWidget" name="tableWidget">
+              <property name="styleSheet">
+               <string notr="true">QTableWidget
+{
+    /*前景色：文字颜色*/    
+    color: rgb(0, 0, 0);
+   
+    /*表格中的网格线条颜色*/    
+    /*gridline-color:rgb(255, 224, 205);*/
+    
+    background-color: rgb(200, 200, 0);
+    background-color: rgb(255, 170, 0);
+        
+    /*设置交替颜色，需要在函数属性中设置:
+    tableWidget-&gt;setAlternatingRowColors(true)
+    */
+    alternate-background-color: rgb(85, 85, 255);
+    selection-color:red;    /*鼠标选中时前景色：文字颜色*/
+    selection-background-color:yellow;   /*鼠标选中时背景色*/
+    border:1px solid gray;  /*边框线的宽度、颜色*/
+    border:0px;    /*去除边界线*/
+    /*border-radius:5px;*/
+    /*padding:10px 10px;*/  /*表格与边框的间距*/
+}
+
+QHeaderView::section
+{               
+     background-color: rgb(85, 255, 0);
+     font-weight  : bold;    
+     color: rgb(255, 0, 0);
+     border: 0px solid;
+}
+
+QTableWidget::Item
+{
+    border:0px solid rgb(255,0,0);
+    border-bottom:1px solid rgb(255,0,0);
+}
+</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -442,7 +576,47 @@ border-image: url(:/images/background.png);
              <number>0</number>
             </property>
             <item>
-             <widget class="QTableWidget" name="tableWidget_2"/>
+             <widget class="QTableWidget" name="tableWidget_2">
+              <property name="styleSheet">
+               <string notr="true">QTableWidget
+{
+    /*前景色：文字颜色*/    
+    color: rgb(0, 0, 0);
+   
+    /*表格中的网格线条颜色*/    
+    /*gridline-color:rgb(255, 224, 205);*/
+    
+    background-color: rgb(200, 200, 0);
+    background-color: rgb(255, 170, 0);
+        
+    /*设置交替颜色，需要在函数属性中设置:
+    tableWidget-&gt;setAlternatingRowColors(true)
+    */
+    alternate-background-color: rgb(85, 85, 255);
+    selection-color:red;    /*鼠标选中时前景色：文字颜色*/
+    selection-background-color:yellow;   /*鼠标选中时背景色*/
+    border:1px solid gray;  /*边框线的宽度、颜色*/
+    border:0px;    /*去除边界线*/
+    /*border-radius:5px;*/
+    /*padding:10px 10px;*/  /*表格与边框的间距*/
+}
+
+QHeaderView::section
+{               
+     background-color: rgb(85, 255, 0);
+     font-weight  : bold;    
+     color: rgb(255, 0, 0);
+     border: 0px solid;
+}
+
+QTableWidget::Item
+{
+    border:0px solid rgb(255,0,0);
+    border-bottom:1px solid rgb(255,0,0);
+}
+</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -481,7 +655,7 @@ border-image: url(:/images/background.png);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>609</width>
+     <width>549</width>
      <height>23</height>
     </rect>
    </property>

@@ -86,12 +86,13 @@ public:
     {
         if (CloudMusicWindow->objectName().isEmpty())
             CloudMusicWindow->setObjectName(QString::fromUtf8("CloudMusicWindow"));
-        CloudMusicWindow->resize(609, 522);
+        CloudMusicWindow->resize(549, 454);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Ignored);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(CloudMusicWindow->sizePolicy().hasHeightForWidth());
         CloudMusicWindow->setSizePolicy(sizePolicy);
+        CloudMusicWindow->setMinimumSize(QSize(549, 0));
         centralwidget = new QWidget(CloudMusicWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setStyleSheet(QString::fromUtf8("QWidget#centralwidget{\n"
@@ -103,6 +104,7 @@ public:
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+        graphicsView->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
 
         verticalLayout->addWidget(graphicsView);
 
@@ -226,6 +228,37 @@ public:
 
         horizontalSlider = new QSlider(centralwidget);
         horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
+        horizontalSlider->setStyleSheet(QString::fromUtf8("QSlider\n"
+"{\n"
+"    border-color: #bcbcbc;\n"
+"}\n"
+"\n"
+"QSlider::groove:horizontal\n"
+"{                                \n"
+"     border: 1px solid #999999;                             \n"
+"     height: 3px;                                           \n"
+"     margin: 0px 0;                                         \n"
+"     left: 5px; right: 5px; \n"
+" }\n"
+" \n"
+"QSlider::handle:horizontal\n"
+"{                               \n"
+"     border: 0px ;                           \n"
+"     border-image: url(:/images/slider-handle.png);\n"
+"     width: 15px;                                           \n"
+"     margin: -7px -7px -7px -6px;                  \n"
+"} \n"
+"\n"
+"QSlider::add-page:horizontal\n"
+"{\n"
+"    background:white;\n"
+"}\n"
+"\n"
+"QSlider::sub-page:horizontal\n"
+"{                               \n"
+"     background:red;                \n"
+"}\n"
+""));
         horizontalSlider->setOrientation(Qt::Horizontal);
 
         horizontalLayout->addWidget(horizontalSlider);
@@ -268,11 +301,58 @@ public:
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         sizePolicy1.setHeightForWidth(lineEdit->sizePolicy().hasHeightForWidth());
         lineEdit->setSizePolicy(sizePolicy1);
+        lineEdit->setStyleSheet(QString::fromUtf8("QLineEdit \n"
+"{\n"
+"    border: 2px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: yellow;\n"
+"    selection-background-color: darkgray;\n"
+" }\n"
+""));
 
         verticalLayout_5->addWidget(lineEdit);
 
         tabWidget = new QTabWidget(page);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tabWidget->setStyleSheet(QString::fromUtf8("/* The tab widget frame */\n"
+"QTabWidget::pane \n"
+"{ \n"
+"    border-top: 2px solid #55aaff;\n"
+"    position: absolute;\n"
+"    top: -0.5em;\n"
+" }\n"
+"\n"
+" QTabWidget::tab-bar\n"
+" {\n"
+"     alignment: center;\n"
+" }\n"
+"\n"
+"  /* Style the tab using the tab sub-control. Note that it reads\n"
+"   QTabBar_not_ QTabWidget */\n"
+"  QTabBar::tab\n"
+"  {    \n"
+"      background-color: rgb(85, 170, 255);\n"
+"      border: 2px solid #00ff7f;\n"
+"      border-bottom-color: #C2C7CB; /* same as the pane color */\n"
+"      border-top-left-radius: 4px;\n"
+"      border-top-right-radius: 4px;\n"
+"      min-width: 8ex;\n"
+"      padding: 2px;\n"
+"  }\n"
+"\n"
+"  QTabBar::tab:hover\n"
+"  {  \n"
+"      background-color: rgb(255, 0, 255);\n"
+"  }\n"
+"\n"
+"  QTabBar::tab:selected\n"
+"  {            \n"
+"     background-color: rgb(255, 0, 127);\n"
+"     /* same as pane color */\n"
+"     border-bottom-color: rgb(85, 170, 255);\n"
+"  }\n"
+""));
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
         verticalLayout_2 = new QVBoxLayout(tab);
@@ -281,6 +361,44 @@ public:
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         tableWidget = new QTableWidget(tab);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
+        tableWidget->setStyleSheet(QString::fromUtf8("QTableWidget\n"
+"{\n"
+"    /*\345\211\215\346\231\257\350\211\262\357\274\232\346\226\207\345\255\227\351\242\234\350\211\262*/    \n"
+"    color: rgb(0, 0, 0);\n"
+"   \n"
+"    /*\350\241\250\346\240\274\344\270\255\347\232\204\347\275\221\346\240\274\347\272\277\346\235\241\351\242\234\350\211\262*/    \n"
+"    /*gridline-color:rgb(255, 224, 205);*/\n"
+"    \n"
+"    background-color: rgb(200, 200, 0);\n"
+"    background-color: rgb(255, 170, 0);\n"
+"        \n"
+"    /*\350\256\276\347\275\256\344\272\244\346\233\277\351\242\234\350\211\262\357\274\214\351\234\200\350\246\201\345\234\250\345\207\275\346\225\260\345\261\236\346\200\247\344\270\255\350\256\276\347\275\256:\n"
+"    tableWidget->setAlternatingRowColors(true)\n"
+"    */\n"
+"    alternate-background-color: rgb(85, 85, 255);\n"
+"    selection-color:red;    /*\351\274\240\346\240\207\351\200\211\344\270\255\346\227\266\345\211\215\346\231\257\350\211\262\357\274\232\346\226\207\345\255\227\351\242\234\350\211\262*/\n"
+"    selection-background-color:ye"
+                        "llow;   /*\351\274\240\346\240\207\351\200\211\344\270\255\346\227\266\350\203\214\346\231\257\350\211\262*/\n"
+"    border:1px solid gray;  /*\350\276\271\346\241\206\347\272\277\347\232\204\345\256\275\345\272\246\343\200\201\351\242\234\350\211\262*/\n"
+"    border:0px;    /*\345\216\273\351\231\244\350\276\271\347\225\214\347\272\277*/\n"
+"    /*border-radius:5px;*/\n"
+"    /*padding:10px 10px;*/  /*\350\241\250\346\240\274\344\270\216\350\276\271\346\241\206\347\232\204\351\227\264\350\267\235*/\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{               \n"
+"     background-color: rgb(85, 255, 0);\n"
+"     font-weight  : bold;    \n"
+"     color: rgb(255, 0, 0);\n"
+"     border: 0px solid;\n"
+"}\n"
+"\n"
+"QTableWidget::Item\n"
+"{\n"
+"    border:0px solid rgb(255,0,0);\n"
+"    border-bottom:1px solid rgb(255,0,0);\n"
+"}\n"
+""));
 
         verticalLayout_2->addWidget(tableWidget);
 
@@ -293,6 +411,44 @@ public:
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         tableWidget_2 = new QTableWidget(tab_2);
         tableWidget_2->setObjectName(QString::fromUtf8("tableWidget_2"));
+        tableWidget_2->setStyleSheet(QString::fromUtf8("QTableWidget\n"
+"{\n"
+"    /*\345\211\215\346\231\257\350\211\262\357\274\232\346\226\207\345\255\227\351\242\234\350\211\262*/    \n"
+"    color: rgb(0, 0, 0);\n"
+"   \n"
+"    /*\350\241\250\346\240\274\344\270\255\347\232\204\347\275\221\346\240\274\347\272\277\346\235\241\351\242\234\350\211\262*/    \n"
+"    /*gridline-color:rgb(255, 224, 205);*/\n"
+"    \n"
+"    background-color: rgb(200, 200, 0);\n"
+"    background-color: rgb(255, 170, 0);\n"
+"        \n"
+"    /*\350\256\276\347\275\256\344\272\244\346\233\277\351\242\234\350\211\262\357\274\214\351\234\200\350\246\201\345\234\250\345\207\275\346\225\260\345\261\236\346\200\247\344\270\255\350\256\276\347\275\256:\n"
+"    tableWidget->setAlternatingRowColors(true)\n"
+"    */\n"
+"    alternate-background-color: rgb(85, 85, 255);\n"
+"    selection-color:red;    /*\351\274\240\346\240\207\351\200\211\344\270\255\346\227\266\345\211\215\346\231\257\350\211\262\357\274\232\346\226\207\345\255\227\351\242\234\350\211\262*/\n"
+"    selection-background-color:ye"
+                        "llow;   /*\351\274\240\346\240\207\351\200\211\344\270\255\346\227\266\350\203\214\346\231\257\350\211\262*/\n"
+"    border:1px solid gray;  /*\350\276\271\346\241\206\347\272\277\347\232\204\345\256\275\345\272\246\343\200\201\351\242\234\350\211\262*/\n"
+"    border:0px;    /*\345\216\273\351\231\244\350\276\271\347\225\214\347\272\277*/\n"
+"    /*border-radius:5px;*/\n"
+"    /*padding:10px 10px;*/  /*\350\241\250\346\240\274\344\270\216\350\276\271\346\241\206\347\232\204\351\227\264\350\267\235*/\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{               \n"
+"     background-color: rgb(85, 255, 0);\n"
+"     font-weight  : bold;    \n"
+"     color: rgb(255, 0, 0);\n"
+"     border: 0px solid;\n"
+"}\n"
+"\n"
+"QTableWidget::Item\n"
+"{\n"
+"    border:0px solid rgb(255,0,0);\n"
+"    border-bottom:1px solid rgb(255,0,0);\n"
+"}\n"
+""));
 
         verticalLayout_3->addWidget(tableWidget_2);
 
@@ -321,7 +477,7 @@ public:
         CloudMusicWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(CloudMusicWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 609, 23));
+        menubar->setGeometry(QRect(0, 0, 549, 23));
         CloudMusicWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(CloudMusicWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -329,7 +485,7 @@ public:
 
         retranslateUi(CloudMusicWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(CloudMusicWindow);
