@@ -485,6 +485,139 @@ namespace chapter06
 		   double *reset(double *);// 合法
 	 * */
 
+	/*
+	 练习6.40：下面的哪个声明是错误的?为什么？
+		(a) int ff(int a, int b = 0, int c = 0);
+		(b) char *init(int ht = 24, int wd, char bckgrnd); // 错的，默认参数放最后
+	 * */
+
+	/*
+	 练习6.41：下面的哪个调用是非法的？为什么？哪个调用虽然合法但显然与程序员的初衷不符？为什么？
+		char *init(int ht, int wd=80, char bckgrnd=' ');
+		(a) init();    (b)init(24,10);    (c)init(14, '*');
+
+	 a非法，b合法，c合法，但是不对。
+	 * */
+
+	/*
+	 练习 6.42:给make_plural函数 (参见6.3.2 节，第201页)的第二个形参赋予默认实参's'，利用新版本的函数输
+	 出单词 success 和 failure 的单数和复数形式。
+	 * */
+	string make_plural(size_t ctr, const string& word, const string& ending = "s") {
+		return (ctr > 1) ? word + ending : word;
+	}
+
+	void q6_42() {
+		cout << make_plural(1, "success") << " " << make_plural(2, "success", "es") << endl;
+		cout << make_plural(1, "failure") << " " << make_plural(2, "failure") << endl;
+	}
+
+	/*
+	 练习6.43：你会把下面的哪个声明和定义放在头文件中？哪个放在源文件中？为什么？
+		(a) inline bool eq(const BigInt&, const BigInt&){...}
+		(b) void putValues(int *arr, int size);
+
+	 把a的函数和定义放在头文件中，因为a是内联函数。把b的声明放在头文件中，b的定义放在源文件中。
+	 * */
+
+	/*
+	 练习 6.44:将6.2.2节(第189页)的isShorter函数改写成内联函数。
+
+	 inline bool isShorter(const string &s1,const string &s2){
+		return s1.size() < s2.size();
+	 }
+	 * */
+
+	/*
+	 练习6.45：回顾在前面的练习中你编写的那些函数，它们应该是内联函数吗？
+	 如果是，将它们改写成内联函数；
+	 如果不是，说明原因。
+
+	 一般来说，内联机制用于优化规模较小、流程直接、频繁调用的函数。
+	 * */
+
+	/*
+	 练习6.46：能把isShorter函数定义成constexpr函数吗？如果能，将它改写成constexpr函数；如果不能，说明原因。
+
+	 定义constexpr函数的方法与其他函数类似，不过要遵循几项约定：
+		1）函数的返回值类型必须是字面值类型
+		2）函数的所有形参必须都是字面值类型
+		3）函数体中必须有且只有一条return语句
+	所以，isShorter函数不能定义为constexpr函数，因为该函数的形参类型string不是字面值类型
+	 * */
+
+	/*
+	 练习6.50：已知有第217页对函数f的声明，对于下面的每一个调用列出可行函数。其中哪个函数是最佳匹配？如果调用不合法，是因为没有可匹配的函数还是因为调用具有二义性？
+		void f();
+		void f(int);
+		void f(int,int);
+		void f(double,double=3.14);
+		(a) f ( 2.56, 42)      (b) f(42)       (c) f(42,0)      (d) f(2.56,3.14)
+
+	 a.对函数的调用不明确（三、四冲突）
+	 b.合法
+	 c.合法
+	 d.合法，匹配第四个
+	 * */
+
+	/*
+	 练习6.52：已知有如下声明：
+	 void manip(int, int);
+	 double dobj;
+	 请指出下列调用中每个类型转换的等级（参见6.6.1节）
+	 (a) manip('a', 'z'); (b) manip(55.4, dobj);
+
+	 a，转换等级3，类型提升，将两个形参char类型提升int类型
+	 b，转换等级4，算术类型匹配，将两个形参double类型转换成int类型
+	 * */
+
+	/*
+	 练习6.53：说明下列每组声明中的第二条语句会产生什么影响，并指出哪些不合法。
+		(a) int calc (int &, int &);
+			int calc(const int &, const int &);
+		(b) int calc(char *, char *);
+	 		int calc(cont char *, const char *);
+		(c) int calc(char *, char *);
+			int calc(char * const, char * const);
+
+	 a、合法。根据传入的实参是否是const类型决定使用哪个函数。如果两个函数的唯一区别是它的指针形参指向常量或非常量，
+	 则编译器通过实参是否是常量决定选用哪个函数。
+	 b、合法。如果实参是指向常量的指针，调用形参是const*的函数，如果实参是指向非常量的指针，调用形参是普通指针的函数
+	 c、不合法。重复定义。
+	 * */
+
+	/*
+	 练习6.54：编写函数的声明，令其接收两个int形参并且返回类型也是int；然后声明一个vector对象，令其元素是指向该函数的指针。
+	 练习6.55：编写4个函数，分别对两个int值执行加、减、乘、除运算；在上一题创建的vector对象中保存指向这些函数的指针。
+	 练习6.56：调用上述vector对象中的每个元素并输出其结果。
+	 * */
+	int addition(int c, int d) {
+		return c + d;
+	}
+
+	int subtraction(int c, int d) {
+		return c - d;
+	}
+
+	int multiplication(int c, int d) {
+		return c * d;
+	}
+
+	int division(int c, int d) {
+		return d != 0 ? (c / d) : 0;
+	}
+
+	void q6_54_55_56() {
+		using p_func = int (*)(int, int);
+		vector<p_func> v;
+		v.push_back(addition);
+		v.push_back(subtraction);
+		v.push_back(multiplication);
+		v.push_back(division);
+		for (auto m: v)
+			cout << m(20, 10) << endl;
+	}
+
 	void main() {
 //		q6_3();
 //		q6_5();
@@ -500,7 +633,9 @@ namespace chapter06
 //		q6_27();
 //		q6_33();
 //		q6_37();
-		q6_38();
+//		q6_38();
+//		q6_42();
+		q6_54_55_56();
 
 	}
 }
