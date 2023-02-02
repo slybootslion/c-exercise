@@ -316,7 +316,7 @@ namespace chapter06
 	/*
 	 练习6.27:编写一个函数，它的参数是initializer_list<int>类型的对象，函数的功能是计算列表中所有元素的和。
 	 * */
-	void test04(initializer_list<int> const &li) {
+	void test04(initializer_list<int> const& li) {
 		int s = 0;
 		for (auto item: li)
 			s += item;
@@ -346,6 +346,144 @@ namespace chapter06
 	 通过该引用改变原有值)，但常量引用是一个非常好的选择。
 	 * */
 
+	/*
+	 练习6.30:编译第200页的str_subrange函数，看看你的编译器是如何处理函数中的错误的。
+
+		bool str_subrange(const string &str1,const string &str2){
+			if(str1.size()==str2.size())
+				return str1==str2;
+			auto size=(str1.size()<str2.size())?str1.size():str2.size();
+			for(decltype(size) i=0;i!=size;++i){
+				if(str1[i]!=str2[i])
+					return;// Non-void function 'str_subrange' should return a value
+			}
+			// Non-void function does not return a value in all control paths
+		}
+	 * */
+
+	/*
+	 练习 6.31:什么情况下返回的引用无效?什么情况下返回常量的引用无效?
+
+	 当返回的是函数内部的局部变量的引用或常量引用时，是无效的。
+
+	 函数返回的引用必须满足：引用的对象是一个在调用函数之前就存在的对象；如果引用的对象只是函数中的一个局部对象，
+	 那么函数返回这个引用是无效的。同样，返回的常量的引用有效的条件是：引用的对象是一个在调用函数之前就存在的对象。
+	 如果引用的对象只是函数中的一个局部对象，那么函数返回这个引用是无效的。
+	 * */
+
+	/*
+	 练习6.32：下面的函数合法吗？如果合法，说明其功能；如果不合法，修改其中的错误并解释原因。
+
+		int &get(int *array, int index) {return array[index]; }
+		int main()
+		{
+			 int ia[10];
+			 for( int i = 0; i != 10; ++i)
+				get(ia, i) = i;
+		}
+
+	 	合法，该函数将数组ia的10个元素分别初始化为0-9
+	 * */
+
+	/*
+	 练习6.33：编写一个递归函数，输出vector对象的内容。
+	 * */
+	void test633(const vector<int>& v, int i) {
+		if (i < v.size()) {
+			cout << v[i] << endl;
+			test633(v, i + 1);
+		}
+	}
+
+	void q6_33() {
+		vector<int> v = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		test633(v, 0);
+	}
+
+	/*
+	 练习6.34：如果factorial函数的停止条件如下所示，将发生什么情况？
+		if(val!=0)
+
+	 输入负数会进入死循环
+	 * */
+
+	/*
+	 练习6.35：在调用factorial函数时，为什么我们传入的值是val-1而非val--?
+	 调用factorial函数执行过程如图6-3所示，递归函数需要从图中的最下面计算上去，如果将传入的值修改为val-- ,
+	 假设实参val=5，那么程序将会一直执行factorial(val--)，因为val=5>1,而val--永远先使用val=5,相当于程序不断的执行factorial(5)。
+
+	 我们还可以假设把传入的值改为--val,那么输出facotrial(5)的结果不再是正确的120，而是24，
+	 因为--val先执行val=val-1=4，当程序从递归中返回到最顶层时，此时要相乘val=4而不是5,相当于factorial(4)*4。
+	 * */
+
+	/*
+	 练习6.36：编写一个函数的声明，使其返回数组的引用并且该数组包含10个string对象。
+	 不要使用尾置返回类型、decltype或者类型别名。
+
+	 答：string (&(arrStr(string (&arr)[10])))[10];
+	 * */
+
+	/*
+	 练习6.37：为上一题的函数再写三个声明，一个使用类型别名，另一个使用尾置返回类型，最后一个使用decltype关键字。
+	 你觉的哪种形式最好，为什么？
+
+	 类型别名好，写法清楚。
+	 * */
+	using str_ten = string[10];
+
+	str_ten& test637(str_ten& s); // 这个是声明
+
+	auto test637_2(string(& s)[10]) -> string(&)[10]; // 尾置
+
+	string arr[10] = {};
+
+	decltype(arr)& test637_3(string (& s)[10]); // decltype
+
+	void q6_37() {
+		str_ten s = { "a", "a", "a", "a", "a", "a", "a", "a", "a", "a" };
+		test637(s);
+		for (const auto& c: s)
+			cout << c << ", ";
+		cout << endl;
+	}
+
+	str_ten& test637(str_ten& s) {
+		for (auto& c: s) {
+			c += "b";
+		}
+		return s;
+	}
+
+	/*
+	 练习6.38：修改arrPtr函数，使其返回数组的引用。
+	 * */
+	int odd[] = { 1, 3, 5, 7, 9 };
+	int even[] = { 0, 2, 4, 6, 8 };
+
+	decltype(odd)& arrPtr(int i) {
+		return i % 2 ? odd : even;
+	}
+
+	void q6_38() {
+		for (auto& i: arrPtr(1)) {
+			cout << i << ", ";
+		}
+		cout << endl;
+		for (auto& i: arrPtr(2)) {
+			cout << i << ", ";
+		}
+		cout << endl;
+	}
+
+	/*
+	 练习6.39：说明在下面的每组声明中第二条语句是何含义。如果有非法的声明，请指出来。
+		(a) int calc(int, int);
+			int calc(const int,const int); // 非法，无法重载 顶层const形参和没有顶层const形参是一样的
+		(b)int get();
+		   double get(); // 不合法，两个函数只是返回类型不同，实质上两个函数重定义了。
+		(c)int *reset(int *);
+		   double *reset(double *);// 合法
+	 * */
 
 	void main() {
 //		q6_3();
@@ -359,7 +497,10 @@ namespace chapter06
 //		q6_21();
 //		q6_22();
 //		q6_23();
-		q6_27();
+//		q6_27();
+//		q6_33();
+//		q6_37();
+		q6_38();
 
 	}
 }
