@@ -4,6 +4,7 @@
 #include "chapter04/chapter04.h"
 #include "chapter05/chapter05.h"
 #include "chapter06/chapter06.h"
+#include "chapter07/chapter07.h"
 
 int main() {
 //	chapter01::main();
@@ -11,7 +12,8 @@ int main() {
 //	chapter03::main();
 //	chapter04::main();
 //	chapter05::main();
-	chapter06::main();
+//	chapter06::main();
+	chapter07::main();
 
 	return 0;
 }
