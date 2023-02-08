@@ -3,4 +3,4 @@ project(niuke_cpp)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(niuke_cpp main.cpp head.h basic.cpp basic.h)
+add_executable(niuke_cpp main.cpp head.h basic.cpp basic.h composite.cpp composite.h)

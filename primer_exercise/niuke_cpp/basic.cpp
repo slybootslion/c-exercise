@@ -195,6 +195,65 @@ namespace basic
 		}
 	}
 
+	// CPP15 打印乘法表
+	void cpp15() {
+		int n;
+		cin >> n;
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= i; j++) {
+				string b = "   ";
+				if (j == i) b = "";
+				cout << j << " * " << i << " = " << i * j << "    ";
+			}
+			cout << endl;
+		}
+	}
+
+	// CPP16 规律数列求和
+	void cpp16() {
+		long long sum = 0, num = 0;
+		for (int i = 1; i <= 10; i++) {
+			num = num * 10 + 9;
+			sum += num;
+		}
+		cout << sum << endl;
+	}
+
+	// CPP17 计算小球走过的路程和反弹高度
+	void cpp17() {
+		double h;
+		int n;
+		cin >> h;
+		cin >> n;
+		double res;
+		for (int i = 0; i < n; i++) {
+			if (i == 0)
+				res = h;
+			else
+				res = res + 2 * h;
+			h /= 2;
+		}
+		cout << fixed << setprecision(1) << res << " " << h << endl;
+	}
+
+	// CPP18 判断一个数是不是质数
+	void cpp18() {
+		bool check = true;
+		int n;
+		cin >> n;
+		if (n == 2) {
+			cout << "是质数";
+			return;
+		}
+		for (int i = 2; i < n; i++) {
+			if (!(n % i)) {
+				check = false;
+				break;
+			}
+		}
+		check ? cout << "是质数" : cout << "不是质数";
+	}
+
 	void main() {
 //		cpp1();
 //		cpp2();
@@ -209,18 +268,11 @@ namespace basic
 //		cpp11();
 //		cpp12();
 //		cpp13();
-		cpp14();
+//		cpp14();
+//		cpp15();
+//		cpp16();
+//		cpp17();
+//		cpp18();
 
 	}
-}
-
-int main() {
-	for (int i = 100; i < 1000; i++) {
-		int m, n, k;
-		m = i / 100;
-		n = (i - m100) / 10;
-		k = i - m100 - n10;
-		if (mmm + nnn + kk * k == i) std::cout << i << std::endl;
-	}
-	return 0;
 }
