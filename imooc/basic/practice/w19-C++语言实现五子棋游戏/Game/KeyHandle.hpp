@@ -49,6 +49,7 @@ public:
         bool ok = false;
         do
         {
+            tcflush(0, TCIFLUSH); // 按键缓冲区清除
             int ch = getchar();
             if (ch == PLACE_CHESS_KEY)
             {

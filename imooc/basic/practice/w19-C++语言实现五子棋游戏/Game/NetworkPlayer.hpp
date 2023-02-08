@@ -9,6 +9,9 @@
 #include <unistd.h>
 #include "Player.hpp"
 #include "KeyHandle.hpp"
+#include "ChessBoard.hpp"
+#include "BlackChess.hpp"
+#include "WhiteChess.hpp"
 
 class Point
 {
