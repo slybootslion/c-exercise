@@ -76,8 +76,123 @@ namespace basic
 		cin >> b;
 		cin >> c;
 
-		int max = a > b ? a > c ? a : c: b > c ? b : c;
+		int max = a > b ? a > c ? a : c : b > c ? b : c;
 		cout << max << endl;
+	}
+
+	// CPP8 计算商品打折结算金额
+	void cpp8() {
+		double price;
+		cin >> price;
+
+		double cost = 0.0;
+
+		if (price >= 5000) {
+			cost = price * 0.6;
+		} else if (price >= 2000) {
+			cost = price * 0.7;
+		} else if (price >= 500) {
+			cost = price * 0.8;
+		} else if (price >= 100) {
+			cost = price * 0.9;
+		}
+
+		cout << setiosflags(ios::fixed) << setprecision(1) << cost << endl;
+	}
+
+	// CPP9 判断身材状态
+	void cpp9() {
+		double weight;
+		double height;
+
+		cin >> weight;
+		cin >> height;
+
+		// write your code here......
+		double bmi = weight / (height * height);
+		if (bmi < 18.5)
+			cout << "偏瘦";
+		if (bmi >= 18.5 && bmi < 20.9)
+			cout << "苗条";
+		if (bmi >= 20.9 && bmi < 24.9)
+			cout << "适中";
+		if (bmi > 24.9)
+			cout << "偏胖";
+	}
+
+	// CPP10 判断成绩等级
+	void cpp10() {
+		int score;
+		cin >> score;
+		if (score < 0 || score > 100) {
+			cout << "成绩不合法";
+		} else if (score >= 90) {
+			cout << "优秀";
+		} else if (score >= 80) {
+			cout << "良";
+		} else if (score >= 70) {
+			cout << "中";
+		} else if (score >= 60) {
+			cout << "及格";
+		} else {
+			cout << "差";
+		}
+	}
+
+	//  CPP11 判断季节
+	void cpp11() {
+		int month;
+		cin >> month;
+		if (month < 1 || month > 12) //优先判断是否合法月份
+			cout << "不合法" << endl;
+		else {
+			switch (month) { //根据月份判断
+			case 3 ... 5: //连续的值
+				cout << "春季" << endl;
+				break;
+			case 6 ... 8:
+				cout << "夏季" << endl;
+				break;
+			case 9 ... 11:
+				cout << "秋季" << endl;
+				break;
+			default:
+				cout << "冬季" << endl;
+			}
+		}
+	}
+
+	// CPP12 求 1 - n 之间偶数的和
+	void cpp12() {
+		int n;
+		cin >> n;
+		int sum = 0;
+		while (n) {
+			if (!(n % 2))
+				sum += n;
+			n--;
+		}
+		cout << sum << endl;
+	}
+
+	// CPP13 计算一个数的阶乘
+	void cpp13() {
+		int n;
+		cin >> n;
+		long long factorial = 1;
+		n = n + 1;
+		while (n--)
+			n > 0 && (factorial *= n);
+		cout << factorial << endl;
+	}
+
+	// CPP14 输出水仙花数
+	void cpp14() {
+		for (int i = 100; i < 999; i++) {
+			int a = i % 10, b = (i / 10) % 10, c = i / 100;
+			if (a * a * a + b * b * b + c * c * c == i)
+				cout << i << endl;
+		}
 	}
 
 	void main() {
@@ -87,7 +202,25 @@ namespace basic
 //		cpp4();
 //		cpp5();
 //		cpp6();
-		cpp7();
+//		cpp7();
+//		cpp8();
+//		cpp9();
+//		cpp10();
+//		cpp11();
+//		cpp12();
+//		cpp13();
+		cpp14();
 
 	}
+}
+
+int main() {
+	for (int i = 100; i < 1000; i++) {
+		int m, n, k;
+		m = i / 100;
+		n = (i - m100) / 10;
+		k = i - m100 - n10;
+		if (mmm + nnn + kk * k == i) std::cout << i << std::endl;
+	}
+	return 0;
 }

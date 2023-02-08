@@ -2,6 +2,7 @@
 #define NIUKE_CPP_BASIC_H
 
 #include "head.h"
+#include <iomanip>
 
 namespace basic
 {
