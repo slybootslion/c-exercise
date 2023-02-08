@@ -1,4 +1,5 @@
 #include "GoBan.hpp"
+#include "NetworkPlayer.hpp"
 
 int main()
 {

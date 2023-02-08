@@ -63,6 +63,18 @@ public:
             }
         } while (!ok);
     }
+    int getCursorX() const
+    {
+        return cursor.getX();
+    }
+    int getCursorY() const
+    {
+        return cursor.getY();
+    }
+    void setCursorPos(int x, int y)
+    {
+        cursor.setPos(x, y);
+    }
 
 private:
     Cursor cursor;

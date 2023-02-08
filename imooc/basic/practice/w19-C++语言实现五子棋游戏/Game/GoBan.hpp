@@ -1,5 +1,5 @@
-#ifndef _GO_BAN_HEAD
-#define _GO_BAN_HEAD
+#ifndef _GO_BAN_HEAD_H
+#define _GO_BAN_HEAD_H
 
 #include "WhitePlayer.hpp"
 #include "BlackPlayer.hpp"
