@@ -1,0 +1,26 @@
+ARM GAS  asm.s 			page 1
+
+
+   1              	.global _start
+   2              		
+   3              	_start:
+   4 0000 0300A0E3 		mov r0,#3
+   5 0004 0510A0E3 		mov r1,#5
+   6 0008 900102E0 		mul r2,r0,r1
+   7 000c 1910A0E3 		mov r1,#25
+   8 0010 022041E0 		sub r2,r1,r2
+   9 0014 062082E2 		add r2,r2,#6
+  10              	stop:
+  11 0018 FEFFFFEA 		b stop
+ARM GAS  asm.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000407 __GCC_VERSION
+                            *ABS*:00000001 __GCC
+                            *ABS*:0000021a __UVISION_VERSION
+               asm.s:3      .text:00000000 _start
+               asm.s:4      .text:00000000 $a
+               asm.s:10     .text:00000018 stop
+
+NO UNDEFINED SYMBOLS

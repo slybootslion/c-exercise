@@ -3,6 +3,7 @@
 
 #include "head.h"
 #include <cmath>
+#include <cstring>
 
 namespace oop
 {

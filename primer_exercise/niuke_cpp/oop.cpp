@@ -269,13 +269,103 @@ namespace oop
 		a.show();
 	}
 
+	// CPP41 浅拷贝和深拷贝
+	class Person2
+	{
+
+	public:
+		char* name; // 姓名
+		int age;    // 年龄
+
+		Person2(const char* name, int age) {
+			this->name = new char[strlen(name) + 1];
+			strcpy(this->name, name);
+			this->age = age;
+		}
+
+		// write your code here......
+		Person2(Person2& p) {
+			name = new char[strlen(p.name) + 1];
+			strcpy(name, p.name);
+			age = p.age;
+		}
+
+
+		void showPerson() {
+			cout << name << " " << age << endl;
+		}
+
+		~Person2() {
+			if (name != nullptr) {
+				delete[] name;
+				name = nullptr;
+			}
+		}
+
+	};
+
+	void cpp41() {
+		char name[100] = { 0 };
+		int age;
+		cin >> name;
+		cin >> age;
+		Person2 p1(name, age);
+		Person2 p2 = p1;
+		p2.showPerson();
+	}
+
+	// CPP62 数组类的拷贝构造函数
+	class Array2
+	{
+	private:
+		int n{};//数组大小
+		int* a;//数组
+	public:
+		Array2() {
+			cin >> n;
+			a = new int[n];
+			for (int i = 0; i < n; i++) cin >> a[i];
+		}
+
+		~Array2() {
+			delete[]a;
+		}
+
+		Array2(Array2& arr) {
+			n = arr.n;
+			a = new int[n];
+			for (int i = 0; i < n; i++)
+				a[i] = arr.a[i];
+		}
+
+		int getlen() {
+			return n;
+		}
+
+		int get(int i) {
+			return a[i];
+		}
+
+		void show() {
+			for (int i = 0; i < n; i++) cout << a[i] << ' ';
+		}
+	};
+
+	void cpp62() {
+		Array2 a;
+		Array2 b = a;
+		b.show();
+	}
+
 	void main() {
 //		cpp38();
 //		cpp39();
 //		cpp59();
 //		cpp60();
 //		cpp40();
-		cpp61();
+//		cpp61();
+//		cpp41();
+		cpp62();
 
 	}
 }
