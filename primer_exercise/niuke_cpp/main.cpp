@@ -2,12 +2,16 @@
 #include "composite.h"
 #include "function.h"
 #include "oop.h"
+#include "lst.h"
+#include "combined_training.h"
 
 int main() {
 //	basic::main();
 //	composite::main();
 //	function::main();
-	oop::main();
+//	oop::main();
+//	lst::main();
+	combined_training::main();
 
 	return 0;
 }

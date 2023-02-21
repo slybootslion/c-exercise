@@ -283,7 +283,6 @@ namespace oop
 			this->age = age;
 		}
 
-		// write your code here......
 		Person2(Person2& p) {
 			name = new char[strlen(p.name) + 1];
 			strcpy(name, p.name);
@@ -338,7 +337,7 @@ namespace oop
 				a[i] = arr.a[i];
 		}
 
-		int getlen() {
+		int getlen() const {
 			return n;
 		}
 
@@ -357,6 +356,359 @@ namespace oop
 		b.show();
 	}
 
+	// CPP42 友元全局函数
+	class Person3
+	{
+		friend void showAge(Person3& p);
+
+	public:
+		explicit Person3(int age) {
+			this->age = age;
+		}
+
+	private:
+		int age;
+	};
+
+	void showAge(Person3& p) {
+		cout << p.age << endl;
+	}
+
+	void cpp42() {
+		Person3 p(10);
+		showAge(p);
+	}
+
+	// CPP63 友元类
+	class Phone
+	{
+		friend class MyPhone;
+
+	private:
+		int price;
+	public:
+		explicit Phone(int x) {
+			price = x;
+		}
+	};
+
+	class MyPhone
+	{
+	private:
+		Phone phone;
+	public:
+		explicit MyPhone(int x) : phone(x) {
+		}
+
+		[[nodiscard]] int get_price() const {
+			return phone.price;
+		}
+	};
+
+	void cpp63() {
+		int p;
+		cin >> p;
+		MyPhone a(p);
+		cout << a.get_price();
+	}
+
+	// CPP43 加号运算符重载
+	class Time
+	{
+
+	public:
+		int hours;      // 小时
+		int minutes;    // 分钟
+
+		Time() {
+			hours = 0;
+			minutes = 0;
+		}
+
+		Time(int h, int m) {
+			this->hours = h;
+			this->minutes = m;
+		}
+
+		void show() const {
+			cout << hours << " " << minutes << endl;
+		}
+
+		Time operator+(Time& t) const {
+			Time res;
+			res.hours = hours + t.hours + (minutes + t.minutes) / 60;
+			res.minutes = (minutes + t.minutes) % 60;
+			return res;
+		}
+
+		bool operator<(Time& t) const {
+			if (hours < t.hours) return true;
+			if (hours > t.hours) return false;
+			return minutes < t.minutes;
+		}
+
+	};
+
+	void cpp43() {
+		int h, m;
+		cin >> h;
+		cin >> m;
+
+		Time t1(h, m);
+		Time t2(2, 20);
+
+		Time t3 = t1 + t2;
+		t3.show();
+	}
+
+	// CPP64 重载小于号
+	void cpp64() {
+		int h, m;
+		cin >> h;
+		cin >> m;
+
+		Time t1(h, m);
+		Time t2(6, 6);
+
+		if (t1 < t2) cout << "yes";
+		else cout << "no";
+	}
+
+	// CPP44 子类中调用父类构造
+	class Base
+	{
+
+	private:
+		int x;
+		int y;
+
+	public:
+		Base(int x, int y) {
+			this->x = x;
+			this->y = y;
+		}
+
+		[[nodiscard]] int getX() const {
+			return x;
+		}
+
+		[[nodiscard]] int getY() const {
+			return y;
+		}
+
+	};
+
+	class Sub : public Base
+	{
+
+	private:
+		int z;
+
+	public:
+		Sub(int x, int y, int z) : Base(x, y) {
+			this->z = z;
+		}
+
+		[[nodiscard]] int getZ() const {
+			return z;
+		}
+
+		int calculate() {
+			return Base::getX() * Base::getY() * this->getZ();
+		}
+
+	};
+
+	void cpp44() {
+		int x, y, z;
+		cin >> x;
+		cin >> y;
+		cin >> z;
+		Sub sub(x, y, z);
+		cout << sub.calculate() << endl;
+	}
+
+	// CPP45 重写子类计算逻辑
+	class Base2
+	{
+
+	private:
+		int x;
+		int y;
+
+	public:
+		Base2(int x, int y) {
+			this->x = x;
+			this->y = y;
+		}
+
+		[[nodiscard]] int getX() const {
+			return x;
+		}
+
+		[[nodiscard]] int getY() const {
+			return y;
+		}
+
+		void calculate() const {
+			cout << getX() * getY() << endl;
+		}
+
+	};
+
+	class Sub2 : public Base2
+	{
+// write your code here......
+	public:
+		Sub2(int x, int y) : Base2(x, y) {
+		}
+
+		void calculate() {
+			if (getY() == 0) {
+				cout << "Error" << endl;
+				return;
+			}
+			cout << getX() / getY();
+		}
+	};
+
+	void cpp45() {
+		int x, y, z;
+		cin >> x;
+		cin >> y;
+		Sub2 sub(x, y);
+		sub.calculate();
+	}
+
+	// CPP65 构建长方体类
+	class rectangle3
+	{
+	private:
+		int length, width;
+	public:
+		rectangle3(int x, int y) {
+			length = x;
+			width = y;
+		}
+
+		void set(int x, int y) {
+			length = x;
+			width = y;
+		}
+
+		[[nodiscard]] int getlength() const {
+			return length;
+		}
+
+		[[nodiscard]] int getwidth() const {
+			return width;
+		}
+
+		virtual int area() {
+			return length * width;
+		}
+
+		[[nodiscard]] virtual int getval() const {
+			return length * width;
+		}
+	};
+
+	class cuboid : public rectangle3
+	{
+	private:
+		int height;
+	public:
+		cuboid(int x, int y, int z) : rectangle3(x, y) {
+			height = z;
+		}
+
+		int getvolume() {
+			return area() * height;
+		}
+
+		int area() override {
+			return rectangle3::area() * 2 + getwidth() * height * 2 + getlength() * height * 2;
+		}
+
+		[[nodiscard]] int getval () const override {
+			return rectangle3::getval() * height;
+		}
+	};
+
+	void cpp65() {
+		int x, y, z;
+		cin >> x >> y >> z;
+		cuboid a(x, y, z);
+		cout << a.getvolume();
+	}
+
+	// CPP66 求长方体表面积
+	void cpp66() {
+		int x, y, z;
+		cin >> x >> y >> z;
+		cuboid a(x, y, z);
+		cout << a.rectangle3::area() << '\n' << a.area();
+	}
+
+	// CPP46 多态实现计算器功能
+	class BaseCalculator
+	{
+	public:
+		int m_A{};
+		int m_B{};
+
+		// write your code here......
+		virtual int getResult() = 0;
+	};
+
+// 加法计算器类
+	class AddCalculator : public BaseCalculator
+	{
+		// write your code here......
+	public:
+		int getResult() override {
+			return m_A + m_B;
+		}
+	};
+
+// 减法计算器类
+	class SubCalculator : public BaseCalculator
+	{
+		// write your code here......
+	public:
+		int getResult() override {
+			return m_A - m_B;
+		}
+	};
+
+	void cpp46() {
+		BaseCalculator* cal = new AddCalculator;
+		cal->m_A = 10;
+		cal->m_B = 20;
+		cout << cal->getResult() << endl;
+		delete cal;
+
+		cal = new SubCalculator;
+		cal->m_A = 20;
+		cal->m_B = 10;
+		cout << cal->getResult() << endl;
+		delete cal;
+	}
+
+	// CPP67 多态实现求面积体积
+	void cpp67() {
+		int x, y, z;
+		cin >> x >> y >> z;
+		cuboid a(x, y, z);
+		rectangle3 b(x, y);
+
+		rectangle3* p = &b;
+		cout << p->getval() << '\n';
+
+		p = &a;
+		cout << p->getval();
+	}
+
 	void main() {
 //		cpp38();
 //		cpp39();
@@ -365,7 +717,18 @@ namespace oop
 //		cpp40();
 //		cpp61();
 //		cpp41();
-		cpp62();
+//		cpp62();
+//		cpp42();
+//		cpp63();
+//		cpp43();
+//		cpp44();
+//		cpp64();
+//		cpp44();
+//		cpp45();
+//		cpp65();
+//		cpp66();
+//		cpp46();
+		cpp67();
 
 	}
 }
