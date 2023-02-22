@@ -3,6 +3,7 @@
 #include <utility>
 #include <vector>
 #include <algorithm>
+#include <sstream>
 
 namespace combined_training
 {
@@ -33,29 +34,34 @@ namespace combined_training
 
 	// CPP53 个人所得税计算程序
 	// 应纳税额 ＝（工资薪金所得－扣除数）× 适用税率－速算扣除数。其中，扣除数为3500元。
-	class Employee {
+	class Employee
+	{
 
 	private:
 		string name;
 		double salary;
 		// write your code here......
 	public:
-		Employee(string name, double salary): name(std::move(name)), salary(salary) {}
+		Employee(string name, double salary) : name(std::move(name)), salary(salary) {
+		}
+
 		string getName() {
 			return name;
 		}
+
 		[[nodiscard]] double getSalary() const {
 			return salary;
 		}
+
 		double percent{};
 		double deduct{};
 	};
 
-	bool compare (const Employee& e1, const Employee& e2) {
+	bool compare(const Employee& e1, const Employee& e2) {
 		return e1.getSalary() > e2.getSalary();
 	}
 
-	void make_deduct (Employee& e) {
+	void make_deduct(Employee& e) {
 		if (e.getSalary() <= 1500) {
 			e.percent = 0.03;
 			e.deduct = 0;
@@ -84,6 +90,7 @@ namespace combined_training
 		auto str = std::to_string(val);
 		return str.substr(0, str.find('.') + 2 + 1);
 	}
+
 	void cpp53() {
 		vector<Employee> v;
 		Employee e1 = Employee("张三", 6500);
@@ -96,7 +103,7 @@ namespace combined_training
 
 		sort(v.begin(), v.end(), compare);
 
-		for (Employee e : v) {
+		for (Employee e: v) {
 			double tax = 0;
 			make_deduct(e);
 			tax = (e.getSalary() - 3500) * e.percent - e.deduct;
@@ -104,9 +111,59 @@ namespace combined_training
 		}
 	}
 
+	// CPP54 实现简单计算器功能
+	void split_string(string& s, const char flag, vector<string>& res) {
+		istringstream iss(s);
+		string token;
+		while (getline(iss, token, flag))
+			res.push_back(token);
+	}
+
+	void computed(vector<string>& v) {
+		string op = v[0];
+		if (op == "add") cout << atoi(v[1].c_str()) + atoi(v[2].c_str()) << endl;
+		else if (op == "sub") cout << atoi(v[1].c_str()) + atoi(v[2].c_str()) << endl;
+		else if (op == "mul") cout << atoi(v[1].c_str()) * atoi(v[2].c_str()) << endl;
+		else {
+			if (v[2] == "0") cout << "Error" << endl;
+			else cout << atoi(v[1].c_str()) / atoi(v[2].c_str()) << endl;
+		}
+	}
+
+	void cpp54() {
+		char str[100] = { 0 };
+		cin.getline(str, sizeof(str));
+		vector<string> res;
+		string s(str);
+		split_string(s, ' ', res);
+		computed(res);
+	}
+
+	// CPP55 十进制整数转十六进制字符串
+	string toHexString(int n) {
+		int y;
+		string s;
+		while (n > 0) {
+			y = n % 16;
+			if (y < 10) s = char('0' + y) + s;
+			else s = char('A' - 10 + y) + s;
+			n = n / 16;
+		}
+		return s;
+	}
+
+	void cpp55() {
+		int n;
+		cin >> n;
+		string hexStr = toHexString(n);
+		cout << hexStr << endl;
+	}
+
 	void main() {
 //		cpp52();
-		cpp53();
+//		cpp53();
+//		cpp54();
+		cpp55();
 
 	}
 }
