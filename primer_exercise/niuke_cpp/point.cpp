@@ -56,10 +56,28 @@ namespace point
 		}
 	}
 
+	// CC5 牛牛的新数组求和
+	int cal(const int *arr, int n) {
+		int count = 0;
+		for(int i = 0; i < n; i++)
+			count += arr[i];
+		return count;
+	}
+
+	void cc5() {
+		int n;
+		cin >> n;
+		int arr[n];
+		for(int i = 0; i < n; i++)
+			cin >> arr[i];
+		int res = cal(arr, n);
+		cout << res;
+	}
+
 	// CC6 牛牛的排序
-	void sort(int *a, int n) {
+	void sort(int* a, int n) {
 		if (n <= 1) return;
-		for(int i = 0; i < n - 1; i++){
+		for (int i = 0; i < n - 1; i++) {
 			for (int j = 0; j < n - 1; j++) {
 				if (a[j] > a[j + 1])
 					swap(a[j], a[j + 1]);
@@ -67,7 +85,7 @@ namespace point
 		}
 	}
 
-	void cc6 () {
+	void cc6() {
 		int n;
 		cin >> n;
 
@@ -84,7 +102,8 @@ namespace point
 //		cc2();
 //		cc3();
 //		cc4();
-		cc6();
+		cc5();
+//		cc6();
 
 	}
 }
