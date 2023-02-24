@@ -4,6 +4,7 @@
 #include "oop.h"
 #include "lst.h"
 #include "combined_training.h"
+#include "point.h"
 
 int main() {
 //	basic::main();
@@ -11,7 +12,8 @@ int main() {
 //	function::main();
 //	oop::main();
 //	lst::main();
-	combined_training::main();
+//	combined_training::main();
+	point::main();
 
 	return 0;
 }
