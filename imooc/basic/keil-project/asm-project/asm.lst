@@ -5,38 +5,18 @@ ARM GAS  asm.s 			page 1
    2              		
    3              	@0x40000000,0x4000FFFF
    4              	_start:
-   5 0000 0101A0E3 		mov r0,#0x40000000
-   6 0004 0110A0E3 		mov r1,#1
-   7 0008 0A20A0E3 		mov r2,#10
-   8 000c 040000EB 		bl write_data
+   5 0000 0200A0E3 		mov r0,#2
+   6 0004 0310A0E3 		mov r1,#3
+   7 0008 04D09FE5 		ldr sp,=0x4000FFF0
+   8 000c FEFFFFEB 		bl add
    9              		
-  10 0010 0101A0E3 		mov r0,#0x40000000
-  11 0014 34109FE5 		ldr r1,=0x40000100
-  12 0018 0A20A0E3 		mov r2,#10
-  13 001c 050000EB 		bl copy_data
+  10              	stop:
+  11 0010 FEFFFFEA 		b stop
+  12              		
+  13              		
   14              		
-  15              	stop:
-  16 0020 FEFFFFEA 		b stop
-  17              		
-  18              	write_data:
-  19 0024 041080E4 		str r1,[r0],#4
-  20 0028 011081E2 		add r1,r1,#1
-  21 002c 020051E1 		cmp r1,r2
-  22 0030 FBFFFFDA 		ble write_data
-  23 0034 0EF0A0E1 		mov pc,lr
-  24              		
-  25              	copy_data:
-  26 0038 043090E4 		ldr r3,[r0],#4
-  27 003c 043081E4 		str r3,[r1],#4
-  28 0040 012042E2 		sub r2,r2,#1
-  29 0044 000052E3 		cmp r2,#0
-  30 0048 FAFFFFCA 		bgt copy_data
-  31 004c 0EF0A0E1 		mov pc,lr
-  32              		
-  33              		
-  34              		
-  35              		
-  36 0050 00010040 		
+  15              		
+  16 0014 F0FF0040 		
 ARM GAS  asm.s 			page 2
 
 
@@ -46,9 +26,8 @@ DEFINED SYMBOLS
                             *ABS*:0000021a __UVISION_VERSION
                asm.s:4      .text:00000000 _start
                asm.s:5      .text:00000000 $a
-               asm.s:18     .text:00000024 write_data
-               asm.s:25     .text:00000038 copy_data
-               asm.s:15     .text:00000020 stop
-               asm.s:36     .text:00000050 $d
+               asm.s:10     .text:00000010 stop
+               asm.s:16     .text:00000014 $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+add

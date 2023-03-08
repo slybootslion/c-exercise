@@ -1,0 +1,346 @@
+ARM GAS  C:\Users\SLYBOO~1\AppData\Local\Temp\ccqdk59A.s 			page 1
+
+
+   1              		.cpu arm7tdmi
+   2              		.arch armv4t
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"add.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.align	2
+  18              		.global	add
+  19              		.syntax unified
+  20              		.arm
+  21              		.type	add, %function
+  22              	add:
+  23              	.LFB0:
+  24              		.file 1 "add.c"
+   1:add.c         **** int add (int a, int b){
+  25              		.loc 1 1 23
+  26              		.cfi_startproc
+  27              		@ Function supports interworking.
+  28              		@ args = 0, pretend = 0, frame = 16
+  29              		@ frame_needed = 1, uses_anonymous_args = 0
+  30 0000 0DC0A0E1 		mov	ip, sp
+  31              	.LCFI0:
+  32              		.cfi_def_cfa_register 12
+  33 0004 00D82DE9 		push	{fp, ip, lr, pc}
+  34              		.cfi_offset 11, -16
+  35              		.cfi_offset 13, -12
+  36              		.cfi_offset 14, -8
+  37 0008 04B04CE2 		sub	fp, ip, #4
+  38              	.LCFI1:
+  39              		.cfi_def_cfa 11, 4
+  40 000c 10D04DE2 		sub	sp, sp, #16
+  41 0010 18000BE5 		str	r0, [fp, #-24]
+  42 0014 1C100BE5 		str	r1, [fp, #-28]
+   2:add.c         **** 	int c;
+   3:add.c         **** 	asm(
+  43              		.loc 1 3 2
+  44 0018 18301BE5 		ldr	r3, [fp, #-24]
+  45 001c 1C201BE5 		ldr	r2, [fp, #-28]
+  46              		.syntax divided
+  47              	@ 3 "add.c" 1
+  48 0020 020083E0 		add r0,r3,r2
+  49 0024 0030A0E1 	mov r3,r0
+  50              	
+  51              	@ 0 "" 2
+  52              		.arm
+  53              		.syntax unified
+  54 0028 10300BE5 		str	r3, [fp, #-16]
+ARM GAS  C:\Users\SLYBOO~1\AppData\Local\Temp\ccqdk59A.s 			page 2
+
+
+   4:add.c         **** 		"add r0,%1,%2\n"
+   5:add.c         **** 		"mov %0,r0\n"
+   6:add.c         **** 		:"=r"(c)
+   7:add.c         **** 		:"r"(a),"r"(b)
+   8:add.c         **** 		:"r0"
+   9:add.c         **** 	);
+  10:add.c         **** 	return c;
+  55              		.loc 1 10 9
+  56 002c 10301BE5 		ldr	r3, [fp, #-16]
+  11:add.c         **** }...
+  57              		.loc 1 11 1
+  58 0030 0300A0E1 		mov	r0, r3
+  59 0034 0CD04BE2 		sub	sp, fp, #12
+  60              	.LCFI2:
+  61              		.cfi_def_cfa 13, 16
+  62 0038 00689DE8 		ldm	sp, {fp, sp, lr}
+  63              	.LCFI3:
+  64              		.cfi_restore 14
+  65              		.cfi_restore 13
+  66              		.cfi_restore 11
+  67              		.cfi_def_cfa_offset 4
+  68 003c 1EFF2FE1 		bx	lr
+  69              		.cfi_endproc
+  70              	.LFE0:
+  71              		.size	add, .-add
+  72              	.Letext0:
+  73              		.section	.debug_info,"",%progbits
+  74              	.Ldebug_info0:
+  75 0000 70000000 		.4byte	0x70
+  76 0004 0200     		.2byte	0x2
+  77 0006 00000000 		.4byte	.Ldebug_abbrev0
+  78 000a 04       		.byte	0x4
+  79 000b 01       		.uleb128 0x1
+  80 000c 00000000 		.4byte	.LASF0
+  81 0010 0C       		.byte	0xc
+  82 0011 83000000 		.4byte	.LASF1
+  83 0015 89000000 		.4byte	.LASF2
+  84 0019 00000000 		.4byte	.Ltext0
+  85 001d 40000000 		.4byte	.Letext0
+  86 0021 00000000 		.4byte	.Ldebug_line0
+  87 0025 02       		.uleb128 0x2
+  88 0026 01       		.byte	0x1
+  89 0027 61646400 		.ascii	"add\000"
+  90 002b 01       		.byte	0x1
+  91 002c 01       		.byte	0x1
+  92 002d 05       		.byte	0x5
+  93 002e 01       		.byte	0x1
+  94 002f 6C000000 		.4byte	0x6c
+  95 0033 00000000 		.4byte	.LFB0
+  96 0037 40000000 		.4byte	.LFE0
+  97 003b 00000000 		.4byte	.LLST0
+  98 003f 01       		.byte	0x1
+  99 0040 6C000000 		.4byte	0x6c
+ 100 0044 03       		.uleb128 0x3
+ 101 0045 6100     		.ascii	"a\000"
+ 102 0047 01       		.byte	0x1
+ 103 0048 01       		.byte	0x1
+ARM GAS  C:\Users\SLYBOO~1\AppData\Local\Temp\ccqdk59A.s 			page 3
+
+
+ 104 0049 0E       		.byte	0xe
+ 105 004a 6C000000 		.4byte	0x6c
+ 106 004e 02       		.byte	0x2
+ 107 004f 91       		.byte	0x91
+ 108 0050 64       		.sleb128 -28
+ 109 0051 03       		.uleb128 0x3
+ 110 0052 6200     		.ascii	"b\000"
+ 111 0054 01       		.byte	0x1
+ 112 0055 01       		.byte	0x1
+ 113 0056 15       		.byte	0x15
+ 114 0057 6C000000 		.4byte	0x6c
+ 115 005b 02       		.byte	0x2
+ 116 005c 91       		.byte	0x91
+ 117 005d 60       		.sleb128 -32
+ 118 005e 04       		.uleb128 0x4
+ 119 005f 6300     		.ascii	"c\000"
+ 120 0061 01       		.byte	0x1
+ 121 0062 02       		.byte	0x2
+ 122 0063 06       		.byte	0x6
+ 123 0064 6C000000 		.4byte	0x6c
+ 124 0068 02       		.byte	0x2
+ 125 0069 91       		.byte	0x91
+ 126 006a 6C       		.sleb128 -20
+ 127 006b 00       		.byte	0
+ 128 006c 05       		.uleb128 0x5
+ 129 006d 04       		.byte	0x4
+ 130 006e 05       		.byte	0x5
+ 131 006f 696E7400 		.ascii	"int\000"
+ 132 0073 00       		.byte	0
+ 133              		.section	.debug_abbrev,"",%progbits
+ 134              	.Ldebug_abbrev0:
+ 135 0000 01       		.uleb128 0x1
+ 136 0001 11       		.uleb128 0x11
+ 137 0002 01       		.byte	0x1
+ 138 0003 25       		.uleb128 0x25
+ 139 0004 0E       		.uleb128 0xe
+ 140 0005 13       		.uleb128 0x13
+ 141 0006 0B       		.uleb128 0xb
+ 142 0007 03       		.uleb128 0x3
+ 143 0008 0E       		.uleb128 0xe
+ 144 0009 1B       		.uleb128 0x1b
+ 145 000a 0E       		.uleb128 0xe
+ 146 000b 11       		.uleb128 0x11
+ 147 000c 01       		.uleb128 0x1
+ 148 000d 12       		.uleb128 0x12
+ 149 000e 01       		.uleb128 0x1
+ 150 000f 10       		.uleb128 0x10
+ 151 0010 06       		.uleb128 0x6
+ 152 0011 00       		.byte	0
+ 153 0012 00       		.byte	0
+ 154 0013 02       		.uleb128 0x2
+ 155 0014 2E       		.uleb128 0x2e
+ 156 0015 01       		.byte	0x1
+ 157 0016 3F       		.uleb128 0x3f
+ 158 0017 0C       		.uleb128 0xc
+ 159 0018 03       		.uleb128 0x3
+ 160 0019 08       		.uleb128 0x8
+ARM GAS  C:\Users\SLYBOO~1\AppData\Local\Temp\ccqdk59A.s 			page 4
+
+
+ 161 001a 3A       		.uleb128 0x3a
+ 162 001b 0B       		.uleb128 0xb
+ 163 001c 3B       		.uleb128 0x3b
+ 164 001d 0B       		.uleb128 0xb
+ 165 001e 39       		.uleb128 0x39
+ 166 001f 0B       		.uleb128 0xb
+ 167 0020 27       		.uleb128 0x27
+ 168 0021 0C       		.uleb128 0xc
+ 169 0022 49       		.uleb128 0x49
+ 170 0023 13       		.uleb128 0x13
+ 171 0024 11       		.uleb128 0x11
+ 172 0025 01       		.uleb128 0x1
+ 173 0026 12       		.uleb128 0x12
+ 174 0027 01       		.uleb128 0x1
+ 175 0028 40       		.uleb128 0x40
+ 176 0029 06       		.uleb128 0x6
+ 177 002a 9742     		.uleb128 0x2117
+ 178 002c 0C       		.uleb128 0xc
+ 179 002d 01       		.uleb128 0x1
+ 180 002e 13       		.uleb128 0x13
+ 181 002f 00       		.byte	0
+ 182 0030 00       		.byte	0
+ 183 0031 03       		.uleb128 0x3
+ 184 0032 05       		.uleb128 0x5
+ 185 0033 00       		.byte	0
+ 186 0034 03       		.uleb128 0x3
+ 187 0035 08       		.uleb128 0x8
+ 188 0036 3A       		.uleb128 0x3a
+ 189 0037 0B       		.uleb128 0xb
+ 190 0038 3B       		.uleb128 0x3b
+ 191 0039 0B       		.uleb128 0xb
+ 192 003a 39       		.uleb128 0x39
+ 193 003b 0B       		.uleb128 0xb
+ 194 003c 49       		.uleb128 0x49
+ 195 003d 13       		.uleb128 0x13
+ 196 003e 02       		.uleb128 0x2
+ 197 003f 0A       		.uleb128 0xa
+ 198 0040 00       		.byte	0
+ 199 0041 00       		.byte	0
+ 200 0042 04       		.uleb128 0x4
+ 201 0043 34       		.uleb128 0x34
+ 202 0044 00       		.byte	0
+ 203 0045 03       		.uleb128 0x3
+ 204 0046 08       		.uleb128 0x8
+ 205 0047 3A       		.uleb128 0x3a
+ 206 0048 0B       		.uleb128 0xb
+ 207 0049 3B       		.uleb128 0x3b
+ 208 004a 0B       		.uleb128 0xb
+ 209 004b 39       		.uleb128 0x39
+ 210 004c 0B       		.uleb128 0xb
+ 211 004d 49       		.uleb128 0x49
+ 212 004e 13       		.uleb128 0x13
+ 213 004f 02       		.uleb128 0x2
+ 214 0050 0A       		.uleb128 0xa
+ 215 0051 00       		.byte	0
+ 216 0052 00       		.byte	0
+ 217 0053 05       		.uleb128 0x5
+ARM GAS  C:\Users\SLYBOO~1\AppData\Local\Temp\ccqdk59A.s 			page 5
+
+
+ 218 0054 24       		.uleb128 0x24
+ 219 0055 00       		.byte	0
+ 220 0056 0B       		.uleb128 0xb
+ 221 0057 0B       		.uleb128 0xb
+ 222 0058 3E       		.uleb128 0x3e
+ 223 0059 0B       		.uleb128 0xb
+ 224 005a 03       		.uleb128 0x3
+ 225 005b 08       		.uleb128 0x8
+ 226 005c 00       		.byte	0
+ 227 005d 00       		.byte	0
+ 228 005e 00       		.byte	0
+ 229              		.section	.debug_loc,"",%progbits
+ 230              	.Ldebug_loc0:
+ 231              	.LLST0:
+ 232 0000 00000000 		.4byte	.LFB0-.Ltext0
+ 233 0004 04000000 		.4byte	.LCFI0-.Ltext0
+ 234 0008 0200     		.2byte	0x2
+ 235 000a 7D       		.byte	0x7d
+ 236 000b 00       		.sleb128 0
+ 237 000c 04000000 		.4byte	.LCFI0-.Ltext0
+ 238 0010 0C000000 		.4byte	.LCFI1-.Ltext0
+ 239 0014 0200     		.2byte	0x2
+ 240 0016 7C       		.byte	0x7c
+ 241 0017 00       		.sleb128 0
+ 242 0018 0C000000 		.4byte	.LCFI1-.Ltext0
+ 243 001c 38000000 		.4byte	.LCFI2-.Ltext0
+ 244 0020 0200     		.2byte	0x2
+ 245 0022 7B       		.byte	0x7b
+ 246 0023 04       		.sleb128 4
+ 247 0024 38000000 		.4byte	.LCFI2-.Ltext0
+ 248 0028 3C000000 		.4byte	.LCFI3-.Ltext0
+ 249 002c 0200     		.2byte	0x2
+ 250 002e 7D       		.byte	0x7d
+ 251 002f 10       		.sleb128 16
+ 252 0030 3C000000 		.4byte	.LCFI3-.Ltext0
+ 253 0034 40000000 		.4byte	.LFE0-.Ltext0
+ 254 0038 0200     		.2byte	0x2
+ 255 003a 7D       		.byte	0x7d
+ 256 003b 04       		.sleb128 4
+ 257 003c 00000000 		.4byte	0
+ 258 0040 00000000 		.4byte	0
+ 259              		.section	.debug_aranges,"",%progbits
+ 260 0000 1C000000 		.4byte	0x1c
+ 261 0004 0200     		.2byte	0x2
+ 262 0006 00000000 		.4byte	.Ldebug_info0
+ 263 000a 04       		.byte	0x4
+ 264 000b 00       		.byte	0
+ 265 000c 0000     		.2byte	0
+ 266 000e 0000     		.2byte	0
+ 267 0010 00000000 		.4byte	.Ltext0
+ 268 0014 40000000 		.4byte	.Letext0-.Ltext0
+ 269 0018 00000000 		.4byte	0
+ 270 001c 00000000 		.4byte	0
+ 271              		.section	.debug_line,"",%progbits
+ 272              	.Ldebug_line0:
+ 273 0000 3A000000 		.section	.debug_str,"MS",%progbits,1
+ 273      03001C00 
+ARM GAS  C:\Users\SLYBOO~1\AppData\Local\Temp\ccqdk59A.s 			page 6
+
+
+ 273      00000201 
+ 273      FB0E0D00 
+ 273      01010101 
+ 274              	.LASF0:
+ 275 0000 474E5520 		.ascii	"GNU C17 10.3.1 20210824 (release) -mapcs-frame -mth"
+ 275      43313720 
+ 275      31302E33 
+ 275      2E312032 
+ 275      30323130 
+ 276 0033 756D622D 		.ascii	"umb-interwork -mcpu=arm7tdmi -mfloat-abi=soft -marm"
+ 276      696E7465 
+ 276      72776F72 
+ 276      6B202D6D 
+ 276      6370753D 
+ 277 0066 202D6D61 		.ascii	" -march=armv4t -gdwarf-2 -O0\000"
+ 277      7263683D 
+ 277      61726D76 
+ 277      3474202D 
+ 277      67647761 
+ 278              	.LASF1:
+ 279 0083 6164642E 		.ascii	"add.c\000"
+ 279      6300
+ 280              	.LASF2:
+ 281 0089 443A5C43 		.ascii	"D:\\Code\\cCode\\c-exercise\\imooc\\basic\\keil-pro"
+ 281      6F64655C 
+ 281      63436F64 
+ 281      655C632D 
+ 281      65786572 
+ 282 00b6 6A656374 		.ascii	"ject\\asm-project\000"
+ 282      5C61736D 
+ 282      2D70726F 
+ 282      6A656374 
+ 282      00
+ 283              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\SLYBOO~1\AppData\Local\Temp\ccqdk59A.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 add.c
+C:\Users\SLYBOO~1\AppData\Local\Temp\ccqdk59A.s:17     .text:00000000 $a
+C:\Users\SLYBOO~1\AppData\Local\Temp\ccqdk59A.s:22     .text:00000000 add
+
+NO UNDEFINED SYMBOLS

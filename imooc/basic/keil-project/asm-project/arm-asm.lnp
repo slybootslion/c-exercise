@@ -1,1 +1,1 @@
--mthumb-interwork -Wl,-Map="./arm-asm.map",-Ttext=0x0 -o "./arm-asm.elf" "./asm.o" -nostartfiles -lm
+-mthumb-interwork -Wl,-Map="./arm-asm.map",-Ttext=0x0 -o "./arm-asm.elf" "./asm.o" "./add.o" -nostartfiles -lm

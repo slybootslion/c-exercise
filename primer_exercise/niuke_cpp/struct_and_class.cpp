@@ -48,13 +48,12 @@ namespace struct_and_class
 
 		sort(v.begin(), v.end(), book_sort);
 
-		for (const auto& b : v)
+		for (const auto& b: v)
 			cout << b.name << endl;
 	}
 
 	void main() {
 //		cc13();
-		cc15();
-
+//		cc15();
 	}
 }
