@@ -44,7 +44,7 @@ void udp_recv_ex(const char* ip, const char* port) {
 	my_addr.sin_addr.s_addr = inet_addr(ip);
 	my_addr.sin_port = htons(atoi(port));
 
-	// 把ip、
+	// 把ip、port和socket绑定
 	int len = sizeof(my_addr);
 	if (bind(sockfd, (struct sockaddr*)&my_addr, len) < 0) {
 		perror("Fail to bind");
