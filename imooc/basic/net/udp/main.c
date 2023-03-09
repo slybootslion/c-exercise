@@ -4,6 +4,7 @@
 //#include "ip_convert_network.h"
 //#include "ip_port.h"
 #include "udp_send.h"
+#include "udp_recv.h"
 
 int main(int argc, const char* argv[]) {
 	if (argc != 3) {
@@ -19,6 +20,8 @@ int main(int argc, const char* argv[]) {
 //	ip_convert_port(argv[1], argv[2]);
 //	ip_port_convert(argv[1], argv[2]);
 
-	udp_send_ex(argv[1], argv[2]);
+//	udp_send_ex(argv[1], argv[2]);
+
+	udp_recv_ex(argv[1], argv[2]);
 	return 0;
 }

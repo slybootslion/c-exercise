@@ -48,3 +48,12 @@ void udp_send_ex(const char* ip, const char* port) {
 	// 关闭文件描述符
 	close(sockfd);
 }
+
+int main (int argc, const char* argv[]) {
+	if (argc != 3) {
+		fprintf(stderr, "Usage: %s ip port!\n", argv[0]);
+		exit(EXIT_FAILURE);
+	}
+	udp_send_ex(argv[1], argv[2]);
+	return 0;
+}
